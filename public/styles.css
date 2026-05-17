@@ -21,6 +21,14 @@ body {
     position: relative;
 }
 
+p {
+    margin-bottom: 1.25rem;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
 /* Subtle warmth gradient */
 .warmth-gradient {
     position: fixed;
