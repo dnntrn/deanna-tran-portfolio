@@ -485,6 +485,17 @@ p:last-child {
 }
 
 /* Projects section */
+.projects {
+    max-width: 520px;
+}
+
+.projects h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+}
+
 .projects h2 {
     font-size: 0.875rem;
     font-weight: 600;
@@ -592,6 +603,14 @@ p:last-child {
 /* Blog section */
 .blog {
     margin-top: 4rem;
+    max-width: 520px;
+}
+
+.blog h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
 }
 
 .blog h2 {
