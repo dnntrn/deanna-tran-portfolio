@@ -293,4 +293,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== Console Easter Egg =====
 console.log('👋 Hey there! Like what you see? Let\'s build something together.');
-console.log('💡 Click the ✨ button to meet the ASCII cat! Click twice for a surprise...');
+console.log('💡 Click the star button to meet the ASCII cat! Click twice for a surprise...');
