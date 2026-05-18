@@ -65,7 +65,20 @@ function createSparkleBurst(x, y) {
     for (let i = 0; i < particleCount; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle-particle';
-        sparkle.textContent = '✨';
+        
+        // Create pink star SVG instead of emoji
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('width', '20');
+        svg.setAttribute('height', '20');
+        svg.style.display = 'block';
+        
+        const star = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        star.setAttribute('d', 'M12 3 Q 12 9 18 9 Q 12 9 12 15 Q 12 9 6 9 Q 12 9 12 3 Z');
+        star.setAttribute('fill', '#e8a5c0');
+        
+        svg.appendChild(star);
+        sparkle.appendChild(svg);
         
         // Random position around the click point
         const angle = (i / particleCount) * Math.PI * 2;
