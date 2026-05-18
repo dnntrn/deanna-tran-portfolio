@@ -1,5 +1,40 @@
 /* ===== Simple & Personal (skids.dev style) ===== */
 
+/* CSS Variables for theming */
+:root {
+    /* Light mode (default) */
+    --bg-primary: #FAF9F6;
+    --bg-secondary: #F8F5EF;
+    --bg-tertiary: #F9F6F0;
+    --text-primary: #1a1a2e;
+    --text-secondary: #6a6a7a;
+    --text-muted: #9a9aaa;
+    --border-color: var(--border-color);
+    --accent-color: #d3a4ff;
+    --accent-pink: #e8a5c0;
+    --accent-purple: #d4a5e8;
+    --tag-bg: rgba(211, 164, 255, 0.1);
+    --tag-bg-hover: rgba(211, 164, 255, 0.15);
+    --speech-bg: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] {
+    /* Dark mode */
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #232338;
+    --bg-tertiary: #2a2a40;
+    --text-primary: #f0f0f5;
+    --text-secondary: #a0a0b0;
+    --text-muted: #707080;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --accent-color: #d3a4ff;
+    --accent-pink: #e8a5c0;
+    --accent-purple: #d4a5e8;
+    --tag-bg: rgba(211, 164, 255, 0.15);
+    --tag-bg-hover: rgba(211, 164, 255, 0.25);
+    --speech-bg: rgba(45, 45, 60, 0.95);
+}
+
 /* Base */
 * {
     margin: 0;
@@ -13,12 +48,13 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(180deg, #FAF9F6 0%, #F8F5EF 40%, #F9F6F0 100%);
-    color: #1a1a2e;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 40%, var(--bg-tertiary) 100%);
+    color: var(--text-primary);
     line-height: 1.7;
     font-size: 16px;
     min-height: 100vh;
     position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 p {
@@ -85,7 +121,7 @@ p:last-child {
 .nav-link {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #6a6a7a;
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
@@ -111,11 +147,52 @@ p:last-child {
 }
 
 .nav-link[aria-current="page"] {
-    color: #d3a4ff;
+    color: var(--accent-color);
 }
 
 .nav-link[aria-current="page"]::after {
     width: 100%;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+    background: var(--tag-bg);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    display: block !important;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    display: none !important;
+}
+
+.theme-toggle .sun-icon {
+    display: none;
+}
+
+.theme-toggle .moon-icon {
+    display: block;
 }
 
 .site-logo {
@@ -209,7 +286,7 @@ p:last-child {
     font-size: 1.75rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #1a1a2e;
+    color: var(--text-primary);
 }
 
 /* Greeting with logo-wrapped name */
@@ -382,7 +459,7 @@ p:last-child {
     font-family: 'Courier New', monospace;
     font-size: 0.875rem;
     line-height: 1.2;
-    color: #1a1a2e;
+    color: var(--text-primary);
     cursor: pointer;
     user-select: none;
     text-shadow: 0 0 20px rgba(211, 164, 255, 0.4),
@@ -435,7 +512,7 @@ p:last-child {
 .cat-speech {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
-    color: #6a6a7a;
+    color: var(--text-secondary);
     background: rgba(255, 255, 255, 0.95);
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -493,7 +570,7 @@ p:last-child {
     font-size: 1.75rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #1a1a2e;
+    color: var(--text-primary);
 }
 
 .projects h2 {
@@ -501,13 +578,13 @@ p:last-child {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #6a6a7a;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
 .project-item {
     padding: 1.5rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 1px solid var(--border-color);
 }
 
 .project-header {
@@ -527,7 +604,7 @@ p:last-child {
 }
 
 .project-title a {
-    color: #1a1a2e;
+    color: var(--text-primary);
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
@@ -586,7 +663,7 @@ p:last-child {
 
 .tag {
     font-size: 0.8125rem;
-    color: #6a6a7a;
+    color: var(--text-secondary);
     background: rgba(211, 164, 255, 0.1);
     padding: 0.25rem 0.625rem;
     border-radius: 4px;
@@ -610,7 +687,7 @@ p:last-child {
     font-size: 1.75rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #1a1a2e;
+    color: var(--text-primary);
 }
 
 .blog h2 {
@@ -618,12 +695,12 @@ p:last-child {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #6a6a7a;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
 .blog-placeholder {
-    color: #9a9aaa;
+    color: var(--text-muted);
     font-style: italic;
 }
 
@@ -631,7 +708,7 @@ p:last-child {
 .blog-preview {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .blog-preview:last-child {
@@ -641,7 +718,7 @@ p:last-child {
 .blog-preview time {
     display: block;
     font-size: 0.8125rem;
-    color: #9a9aaa;
+    color: var(--text-muted);
     margin-bottom: 0.5rem;
 }
 
@@ -652,7 +729,7 @@ p:last-child {
 }
 
 .blog-preview h2 a {
-    color: #1a1a2e;
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -662,13 +739,13 @@ p:last-child {
 }
 
 .blog-preview p {
-    color: #6a6a7a;
+    color: var(--text-secondary);
     margin-bottom: 0;
 }
 
 /* Section intro text */
 .section-intro {
-    color: #6a6a7a;
+    color: var(--text-secondary);
     font-size: 1rem;
     margin-bottom: 2rem;
     margin-top: -0.5rem;
@@ -686,7 +763,7 @@ p:last-child {
 .blog-post-header .back-link {
     display: inline-block;
     font-size: 0.875rem;
-    color: #6a6a7a;
+    color: var(--text-secondary);
     text-decoration: none;
     margin-bottom: 1rem;
     transition: color 0.3s ease;
@@ -699,14 +776,14 @@ p:last-child {
 .blog-post-header time {
     display: block;
     font-size: 0.875rem;
-    color: #9a9aaa;
+    color: var(--text-muted);
     margin-bottom: 0.75rem;
 }
 
 .blog-post-header h1 {
     font-size: 2rem;
     font-weight: 600;
-    color: #1a1a2e;
+    color: var(--text-primary);
     margin-bottom: 0;
 }
 
@@ -730,7 +807,7 @@ p:last-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-top: 1px solid var(--border-color);
     position: relative;
     z-index: 1;
 }
@@ -741,7 +818,7 @@ p:last-child {
 }
 
 .social-link {
-    color: #6a6a7a;
+    color: var(--text-secondary);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     display: inline-flex;
     align-items: center;
@@ -767,7 +844,7 @@ p:last-child {
 
 .copyright {
     font-size: 0.875rem;
-    color: #6a6a7a;
+    color: var(--text-secondary);
 }
 
 /* Responsive */
