@@ -242,7 +242,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== Typewriter Effect =====
-function typeWriter(element, text, speed = 80) {
+function typeWriter(element, text, speed = 70) {
     let i = 0;
     element.textContent = '';
     element.classList.add('typing');
@@ -304,7 +304,7 @@ if (cursorGlow) {
 
 // ===== Sequential Paragraph Fade-In =====
 function animateParagraphs() {
-    const paragraphs = document.querySelectorAll('.intro-section p');
+    const paragraphs = document.querySelectorAll('.intro p');
     
     paragraphs.forEach((p, index) => {
         p.style.opacity = '0';
@@ -321,12 +321,19 @@ function animateParagraphs() {
 // ===== Initialize on Page Load =====
 document.addEventListener('DOMContentLoaded', () => {
     // Typewriter greeting
-    const greeting = document.querySelector('.intro-section h1');
+    const greeting = document.querySelector('.intro h1.greeting');
     if (greeting) {
-        const originalText = greeting.textContent;
+        const originalHTML = greeting.innerHTML;
+        const textToType = "hi! i'm deanna";
         // Delay slightly to let page render
         setTimeout(() => {
-            typeWriter(greeting, originalText, 70);
+            typeWriter(greeting, textToType, 70);
+            // Restore the full HTML (with SVG stars) after typing completes
+            const duration = textToType.length * 70 + 600;
+            setTimeout(() => {
+                greeting.innerHTML = originalHTML;
+                greeting.classList.add('typing-done');
+            }, duration);
         }, 300);
     }
     

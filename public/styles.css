@@ -945,7 +945,7 @@ p:last-child {
     animation: blinkCursor 0.8s step-end infinite;
 }
 
-.intro-section h1.typing-done {
+.intro h1.typing-done {
     border-right: none;
     animation: none;
 }
@@ -980,12 +980,12 @@ p:last-child {
         animation: none;
     }
     
-    .intro-section h1.typing {
+    .intro h1.typing {
         border-right: none;
         animation: none;
     }
     
-    .intro-section p {
+    .intro p {
         opacity: 1 !important;
         transform: none !important;
     }
