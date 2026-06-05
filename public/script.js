@@ -273,11 +273,11 @@ document.addEventListener('DOMContentLoaded', () => {
         target.classList.add('typing'); // Show blinking cursor immediately
         
         typeWriter(target, text, 70, () => {
-            // After typing completes, fade in all paragraphs sequentially
+            // After typing completes, pause then fade in all paragraphs slowly
             allParagraphs.forEach((p, index) => {
                 setTimeout(() => {
                     p.classList.add('visible');
-                }, 400 + (index * 250));
+                }, 1200 + (index * 500));
             });
         });
     }
