@@ -362,7 +362,7 @@ p:last-child {
     height: auto;
     z-index: 1;
     display: block;
-    animation: avatarBreathe 4s ease-in-out infinite;
+    animation: avatarBreathe 6s ease-in-out infinite;
     transform-origin: bottom center;
     transition: transform 0.3s ease;
 }
@@ -373,7 +373,7 @@ p:last-child {
 
 @keyframes avatarBreathe {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); }
+    50% { transform: scale(1.015); }
 }
 
 /* Mobile profile image - hidden on desktop */
