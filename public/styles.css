@@ -358,13 +358,13 @@ p:last-child {
     z-index: 1;
     display: block;
     opacity: 0;
-    animation: fadeInAvatar 0.8s ease forwards;
+    animation: blurInAvatar 1.2s ease forwards;
     animation-delay: 0.8s;
 }
 
-@keyframes fadeInAvatar {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes blurInAvatar {
+    from { opacity: 0; filter: blur(6px); }
+    to { opacity: 1; filter: blur(0px); }
 }
 
 /* Mobile profile image - hidden on desktop */
@@ -374,7 +374,7 @@ p:last-child {
     height: auto;
     margin: 1rem auto;
     opacity: 0;
-    animation: fadeInAvatar 0.8s ease forwards;
+    animation: blurInAvatar 1.2s ease forwards;
     animation-delay: 0.8s;
 }
 
