@@ -227,73 +227,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ===== Wave Animation with Preloading =====
-function preloadImages(urls) {
-    return Promise.all(
-        urls.map(url => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve(url);
-                img.onerror = () => reject(url);
-                img.src = url;
-            });
-        })
-    );
-}
-
-function playWaveAnimation() {
-    const container = document.getElementById('wave-container');
-    if (!container) return;
-    
-    const frames = [
-        container.querySelector('[data-frame="0"]'), // static
-        container.querySelector('[data-frame="1"]'), // wave1
-        container.querySelector('[data-frame="2"]')  // wave2
-    ];
-    
-    // Ensure frame 0 is visible initially
-    frames[0].classList.add('frame-active');
-    
-    // Animation timeline with overlapping crossfades
-    // Transition 0→1 (starts at 500ms)
-    setTimeout(() => {
-        frames[0].classList.remove('frame-active');
-        frames[1].classList.add('frame-active');
-    }, 500);
-    
-    // Transition 1→2 (starts at 700ms, 200ms overlap with 0→1)
-    setTimeout(() => {
-        frames[1].classList.remove('frame-active');
-        frames[2].classList.add('frame-active');
-    }, 700);
-    
-    // Transition 2→0 (starts at 900ms, 200ms overlap with 1→2)
-    setTimeout(() => {
-        frames[2].classList.remove('frame-active');
-        frames[0].classList.add('frame-active');
-    }, 900);
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const imageUrls = [
-        'cartoon-me-full-body.png',
-        'cartoon-me-wave-1.png',
-        'cartoon-me-wave-2.png'
-    ];
-    
-    // Preload images, then play animation
-    preloadImages(imageUrls)
-        .then(() => {
-            console.log('Wave images preloaded');
-            playWaveAnimation();
-        })
-        .catch((err) => {
-            console.log('Image preload failed, showing static:', err);
-            // Static image is already visible by default
-        });
-});
-
 // ===== Smooth scroll for any anchor links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -306,6 +239,101 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+});
+
+// ===== Typewriter Effect =====
+function typeWriter(element, text, speed = 80) {
+    let i = 0;
+    element.textContent = '';
+    element.classList.add('typing');
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            element.classList.remove('typing');
+            element.classList.add('typing-done');
+        }
+    }
+    
+    type();
+}
+
+// ===== Cursor Glow Follow =====
+const cursorGlow = document.querySelector('.cursor-glow');
+
+if (cursorGlow) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let glowX = mouseX;
+    let glowY = mouseY;
+    let isMouseActive = false;
+    let mouseTimeout;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        if (!isMouseActive) {
+            isMouseActive = true;
+            cursorGlow.style.opacity = '1';
+            animateGlow();
+        }
+        
+        clearTimeout(mouseTimeout);
+        mouseTimeout = setTimeout(() => {
+            isMouseActive = false;
+            cursorGlow.style.opacity = '0';
+        }, 3000);
+    });
+    
+    function animateGlow() {
+        if (!isMouseActive) return;
+        
+        glowX += (mouseX - glowX) * 0.08;
+        glowY += (mouseY - glowY) * 0.08;
+        
+        cursorGlow.style.left = glowX + 'px';
+        cursorGlow.style.top = glowY + 'px';
+        
+        requestAnimationFrame(animateGlow);
+    }
+}
+
+// ===== Sequential Paragraph Fade-In =====
+function animateParagraphs() {
+    const paragraphs = document.querySelectorAll('.intro-section p');
+    
+    paragraphs.forEach((p, index) => {
+        p.style.opacity = '0';
+        p.style.transform = 'translateY(20px)';
+        p.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        setTimeout(() => {
+            p.style.opacity = '1';
+            p.style.transform = 'translateY(0)';
+        }, 600 + (index * 300)); // Start after typewriter, stagger 300ms
+    });
+}
+
+// ===== Initialize on Page Load =====
+document.addEventListener('DOMContentLoaded', () => {
+    // Typewriter greeting
+    const greeting = document.querySelector('.intro-section h1');
+    if (greeting) {
+        const originalText = greeting.textContent;
+        // Delay slightly to let page render
+        setTimeout(() => {
+            typeWriter(greeting, originalText, 70);
+        }, 300);
+    }
+    
+    // Animate paragraphs after greeting
+    setTimeout(() => {
+        animateParagraphs();
+    }, 100);
 });
 
 // ===== Console Easter Egg =====

@@ -96,6 +96,19 @@ p:last-child {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(circle, rgba(232, 165, 192, 0.08) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+}
+
 /* Header with logo */
 .site-header {
     padding: 2rem;
@@ -349,6 +362,18 @@ p:last-child {
     height: auto;
     z-index: 1;
     display: block;
+    animation: avatarBreathe 4s ease-in-out infinite;
+    transform-origin: bottom center;
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: rotate(-3deg) scale(1.05);
+}
+
+@keyframes avatarBreathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
 }
 
 /* Mobile profile image - hidden on desktop */
@@ -913,6 +938,31 @@ p:last-child {
     }
 }
 
+/* Typewriter cursor effect */
+.intro-section h1.typing {
+    border-right: 3px solid var(--accent-color);
+    padding-right: 4px;
+    animation: blinkCursor 0.8s step-end infinite;
+}
+
+.intro-section h1.typing-done {
+    border-right: none;
+    animation: none;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { border-color: var(--accent-color); }
+    50% { border-color: transparent; }
+}
+
+/* Sequential paragraph fade-in base */
+.intro-section p {
+    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .logo-star,
@@ -921,7 +971,22 @@ p:last-child {
     }
     
     .noise-overlay,
-    .ascii-cat {
+    .ascii-cat,
+    .cursor-glow {
         display: none;
+    }
+    
+    .profile-avatar {
+        animation: none;
+    }
+    
+    .intro-section h1.typing {
+        border-right: none;
+        animation: none;
+    }
+    
+    .intro-section p {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
