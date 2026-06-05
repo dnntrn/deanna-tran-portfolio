@@ -357,18 +357,14 @@ p:last-child {
     height: auto;
     z-index: 1;
     display: block;
-    animation: avatarBreathe 6s ease-in-out infinite;
-    transform-origin: bottom center;
-    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInAvatar 0.8s ease forwards;
+    animation-delay: 0.8s;
 }
 
-.profile-avatar:hover {
-    transform: rotate(-3deg) scale(1.05);
-}
-
-@keyframes avatarBreathe {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.015); }
+@keyframes fadeInAvatar {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Mobile profile image - hidden on desktop */
@@ -377,6 +373,9 @@ p:last-child {
     width: 140px;
     height: auto;
     margin: 1rem auto;
+    opacity: 0;
+    animation: fadeInAvatar 0.8s ease forwards;
+    animation-delay: 0.8s;
 }
 
 /* Profile sidebar with wave animation */
@@ -941,20 +940,32 @@ p:last-child {
 
 .typewriter-target.typing {
     color: var(--accent-color);
-    border-right: 2px solid var(--accent-color);
-    padding-right: 2px;
+}
+
+.typewriter-target.typing::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent-color);
+    margin-left: 2px;
+    vertical-align: text-bottom;
     animation: blinkCursor 0.8s step-end infinite;
 }
 
 .typewriter-target.typing-done {
     color: var(--text-primary);
-    border-right: none;
-    animation: none;
+    transition: color 0.5s ease;
+    transition-delay: 1.5s;
+}
+
+.typewriter-target.typing-done::after {
+    display: none;
 }
 
 @keyframes blinkCursor {
-    0%, 100% { border-color: var(--accent-color); }
-    50% { border-color: transparent; }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* Reduced motion */
@@ -970,7 +981,9 @@ p:last-child {
         display: none;
     }
     
-    .profile-avatar {
+    .profile-avatar,
+    .profile-avatar-mobile {
+        opacity: 1;
         animation: none;
     }
 }

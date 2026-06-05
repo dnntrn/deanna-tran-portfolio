@@ -268,10 +268,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (target) {
         const text = target.textContent;
         target.textContent = '';
-        // Small delay so the page feels settled
+        target.classList.add('typing'); // Show blinking cursor immediately
+        // Wait for greeting fade-in to complete (1.2s) before typing
         setTimeout(() => {
             typeWriter(target, text, 140);
-        }, 400);
+        }, 1300);
     }
 });
 
