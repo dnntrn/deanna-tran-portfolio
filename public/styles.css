@@ -309,6 +309,14 @@ p:last-child {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
+    animation: fadeInGreeting 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+@keyframes fadeInGreeting {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .greeting-prefix {

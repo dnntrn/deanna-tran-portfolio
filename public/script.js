@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         target.textContent = '';
         // Small delay so the page feels settled
         setTimeout(() => {
-            typeWriter(target, text, 90);
+            typeWriter(target, text, 140);
         }, 400);
     }
 });
