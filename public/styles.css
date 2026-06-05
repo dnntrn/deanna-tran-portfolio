@@ -357,14 +357,13 @@ p:last-child {
     height: auto;
     z-index: 1;
     display: block;
-    opacity: 0;
     animation: blurInAvatar 1.2s ease forwards;
     animation-delay: 0.8s;
 }
 
 @keyframes blurInAvatar {
-    from { opacity: 0; filter: blur(6px); }
-    to { opacity: 1; filter: blur(0px); }
+    from { filter: blur(6px); }
+    to { filter: blur(0px); }
 }
 
 /* Mobile profile image - hidden on desktop */
@@ -373,7 +372,6 @@ p:last-child {
     width: 140px;
     height: auto;
     margin: 1rem auto;
-    opacity: 0;
     animation: blurInAvatar 1.2s ease forwards;
     animation-delay: 0.8s;
 }
