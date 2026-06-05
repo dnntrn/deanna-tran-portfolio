@@ -296,14 +296,6 @@ p:last-child {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
-    animation: fadeInGreeting 1s ease forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
-}
-
-@keyframes fadeInGreeting {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .greeting-prefix {
@@ -357,9 +349,6 @@ p:last-child {
     height: auto;
     z-index: 1;
     display: block;
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-    animation-delay: 0.6s;
 }
 
 /* Mobile profile image - hidden on desktop */
@@ -368,14 +357,6 @@ p:last-child {
     width: 140px;
     height: auto;
     margin: 1rem auto;
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-    animation-delay: 0.6s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 /* Profile sidebar with wave animation */
@@ -932,17 +913,16 @@ p:last-child {
     }
 }
 
-/* Typewriter effect for job title */
-.typewriter-target {
-    display: inline;
-    transition: color 0.5s ease;
+/* Typewriter effect for first paragraph */
+.typewriter-paragraph {
+    display: block;
 }
 
-.typewriter-target.typing {
+.typewriter-paragraph.typing {
     color: var(--accent-color);
 }
 
-.typewriter-target.typing::after {
+.typewriter-paragraph.typing::after {
     content: '';
     display: inline-block;
     width: 2px;
@@ -953,19 +933,31 @@ p:last-child {
     animation: blinkCursor 0.8s step-end infinite;
 }
 
-.typewriter-target.typing-done {
+.typewriter-paragraph.typing-done {
     color: var(--text-primary);
     transition: color 0.5s ease;
     transition-delay: 1.5s;
 }
 
-.typewriter-target.typing-done::after {
+.typewriter-paragraph.typing-done::after {
     display: none;
 }
 
 @keyframes blinkCursor {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Remaining paragraphs fade in after typing */
+.intro p:not(.typewriter-paragraph) {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.intro p.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Reduced motion */
@@ -981,10 +973,14 @@ p:last-child {
         display: none;
     }
     
-    .profile-avatar,
-    .profile-avatar-mobile {
-        opacity: 1;
-        filter: none;
+    .typewriter-paragraph.typing::after {
+        display: none;
         animation: none;
+    }
+    
+    .intro p:not(.typewriter-paragraph) {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }

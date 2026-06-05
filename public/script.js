@@ -242,9 +242,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== Typewriter Effect =====
-function typeWriter(element, text, speed = 80) {
+function typeWriter(element, text, speed = 80, onComplete) {
     let i = 0;
-    const originalText = element.textContent;
     element.textContent = '';
     element.classList.add('typing');
     
@@ -256,23 +255,31 @@ function typeWriter(element, text, speed = 80) {
         } else {
             element.classList.remove('typing');
             element.classList.add('typing-done');
+            if (onComplete) onComplete();
         }
     }
     
     type();
 }
 
-// Type out job title on page load
+// Type out first paragraph on page load, then fade in the rest
 document.addEventListener('DOMContentLoaded', () => {
-    const target = document.querySelector('.typewriter-target');
-    if (target) {
-        const text = target.textContent;
-        target.textContent = '';
-        target.classList.add('typing'); // Show blinking cursor immediately
-        // Wait for greeting fade-in to complete (1.2s) before typing
-        setTimeout(() => {
-            typeWriter(target, text, 140);
-        }, 1300);
+    const firstParagraph = document.querySelector('.typewriter-paragraph');
+    const otherParagraphs = document.querySelectorAll('.intro p:not(.typewriter-paragraph)');
+    
+    if (firstParagraph) {
+        const text = firstParagraph.textContent;
+        firstParagraph.textContent = '';
+        firstParagraph.classList.add('typing'); // Show blinking cursor immediately
+        
+        typeWriter(firstParagraph, text, 140, () => {
+            // After typing completes, fade in remaining paragraphs with stagger
+            otherParagraphs.forEach((p, index) => {
+                setTimeout(() => {
+                    p.classList.add('visible');
+                }, 400 + (index * 250));
+            });
+        });
     }
 });
 
