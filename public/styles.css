@@ -348,72 +348,51 @@ p:last-child {
     animation: starTwinkle 3s ease-in-out infinite;
 }
 
-/* Avatar containers with shimmer overlay */
+/* Avatar containers */
 .avatar-container {
     float: right;
     margin-left: 1rem;
     margin-bottom: 0.5rem;
-    position: relative;
     display: inline-block;
 }
 
 .avatar-container-mobile {
     display: none;
-    position: relative;
     width: 140px;
     margin: 1rem auto;
 }
 
-/* Shimmer overlay veil — tinted static that clears */
-.avatar-container::after,
-.avatar-container-mobile::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background-color: var(--bg-primary);
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-size: 120px 120px;
-    opacity: 0.8;
-    animation: shimmerLift 2.5s ease forwards;
-    animation-delay: 0.8s;
-}
-
-@keyframes shimmerLift {
-    0% { opacity: 0.8; }
-    30% { opacity: 0.4; }
-    100% { opacity: 0; }
-}
-
-/* Profile avatar - full body on desktop */
+/* Profile avatar - starts dreamy, sharpens into reality */
 .profile-avatar {
     width: 120px;
     height: auto;
     z-index: 1;
     display: block;
-    opacity: 0.75;
-    transition: opacity 2.5s ease;
-    transition-delay: 0.8s;
+    opacity: 0.88;
+    filter: blur(3px) saturate(0.85) brightness(1.08);
+    animation: dreamyFocus 2s ease forwards;
+    animation-delay: 0.8s;
 }
 
-.profile-avatar.revealed {
-    opacity: 1;
+@keyframes dreamyFocus {
+    from {
+        opacity: 0.88;
+        filter: blur(3px) saturate(0.85) brightness(1.08);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0px) saturate(1) brightness(1);
+    }
 }
 
 /* Mobile profile image - hidden on desktop */
 .profile-avatar-mobile {
     width: 140px;
     height: auto;
-    opacity: 0.75;
-    transition: opacity 2.5s ease;
-    transition-delay: 0.8s;
-}
-
-.profile-avatar-mobile.revealed {
-    opacity: 1;
+    opacity: 0.88;
+    filter: blur(3px) saturate(0.85) brightness(1.08);
+    animation: dreamyFocus 2s ease forwards;
+    animation-delay: 0.8s;
 }
 
 /* Profile sidebar with wave animation */
@@ -1023,16 +1002,10 @@ p:last-child {
         display: none;
     }
     
-    .avatar-container::after,
-    .avatar-container-mobile::after {
-        display: none;
-    }
-    
     .profile-avatar,
-    .profile-avatar-mobile,
-    .profile-avatar.revealed,
-    .profile-avatar-mobile.revealed {
+    .profile-avatar-mobile {
         opacity: 1;
-        transition: none;
+        filter: none;
+        animation: none;
     }
 }

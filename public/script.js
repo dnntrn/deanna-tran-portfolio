@@ -264,12 +264,6 @@ function typeWriter(element, text, speed = 80) {
 
 // Type out job title on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Reveal avatar opacity after veil starts clearing
-    const avatars = document.querySelectorAll('.profile-avatar, .profile-avatar-mobile');
-    setTimeout(() => {
-        avatars.forEach(avatar => avatar.classList.add('revealed'));
-    }, 800);
-
     const target = document.querySelector('.typewriter-target');
     if (target) {
         const text = target.textContent;
