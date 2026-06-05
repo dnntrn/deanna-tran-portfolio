@@ -357,6 +357,7 @@ p:last-child {
     height: auto;
     z-index: 1;
     display: block;
+    filter: blur(6px);
     animation: blurInAvatar 1.2s ease forwards;
     animation-delay: 0.8s;
 }
@@ -372,6 +373,7 @@ p:last-child {
     width: 140px;
     height: auto;
     margin: 1rem auto;
+    filter: blur(6px);
     animation: blurInAvatar 1.2s ease forwards;
     animation-delay: 0.8s;
 }
@@ -982,6 +984,7 @@ p:last-child {
     .profile-avatar,
     .profile-avatar-mobile {
         opacity: 1;
+        filter: none;
         animation: none;
     }
 }
