@@ -262,19 +262,19 @@ function typeWriter(element, text, speed = 80, onComplete) {
     type();
 }
 
-// Type out first paragraph on page load, then fade in the rest
+// Type out job title on page load, then fade in all paragraphs sequentially
 document.addEventListener('DOMContentLoaded', () => {
-    const firstParagraph = document.querySelector('.typewriter-paragraph');
-    const otherParagraphs = document.querySelectorAll('.intro p:not(.typewriter-paragraph)');
+    const target = document.querySelector('.typewriter-target');
+    const allParagraphs = document.querySelectorAll('.first-paragraph, .fade-paragraph');
     
-    if (firstParagraph) {
-        const text = firstParagraph.textContent;
-        firstParagraph.textContent = '';
-        firstParagraph.classList.add('typing'); // Show blinking cursor immediately
+    if (target) {
+        const text = target.textContent;
+        target.textContent = '';
+        target.classList.add('typing'); // Show blinking cursor immediately
         
-        typeWriter(firstParagraph, text, 140, () => {
-            // After typing completes, fade in remaining paragraphs with stagger
-            otherParagraphs.forEach((p, index) => {
+        typeWriter(target, text, 70, () => {
+            // After typing completes, fade in all paragraphs sequentially
+            allParagraphs.forEach((p, index) => {
                 setTimeout(() => {
                     p.classList.add('visible');
                 }, 400 + (index * 250));
