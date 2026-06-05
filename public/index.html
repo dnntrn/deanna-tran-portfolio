@@ -102,35 +102,23 @@
 
     <main class="content" role="main">
         <section class="intro">
-            <div class="greeting-wrapper">
-                <!-- Real styled greeting: invisible initially -->
-                <h1 class="greeting">
-                    <span class="greeting-prefix">hi! i'm</span>
-                    <span class="name-logo">
-                        <svg class="logo-left-greeting" viewBox="0 0 33 24" width="28" height="20" style="overflow: visible;">
-                            <path d="M8 4 L3 12 L8 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <g filter="url(#starGlow)">
-                                <path class="logo-star" d="M16 6 Q 16 12 22 12 Q 16 12 16 18 Q 16 12 10 12 Q 16 12 16 6 Z" fill="url(#starGradient)"/>
-                                <path class="logo-star-small" d="M26 3 Q 26 8 31 8 Q 26 8 26 13 Q 26 8 21 8 Q 26 8 26 3 Z" fill="url(#starGradient)"/>
-                            </g>
-                        </svg>
-                        <span class="name-text">deanna</span>
-                        <svg class="logo-right-greeting" viewBox="0 0 24 24" width="24" height="20" style="overflow: visible;">
-                            <path d="M4 20 L8 4" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M13 4 L18 12 L13 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </h1>
-                <!-- Structural clone overlay: same flex layout -->
-                <div class="typewriter-overlay" aria-hidden="true">
-                    <span class="overlay-prefix"></span>
-                    <span class="overlay-logo">
-                        <span class="overlay-placeholder" style="width: 28px; height: 20px;"></span>
-                        <span class="overlay-name"></span>
-                        <span class="overlay-placeholder" style="width: 24px; height: 20px;"></span>
-                    </span>
-                </div>
-            </div>
+            <h1 class="greeting">
+                <span class="greeting-prefix">hi! i'm</span>
+                <span class="name-logo">
+                    <svg class="logo-left-greeting" viewBox="0 0 33 24" width="28" height="20" style="overflow: visible;">
+                        <path d="M8 4 L3 12 L8 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g filter="url(#starGlow)">
+                            <path class="logo-star" d="M16 6 Q 16 12 22 12 Q 16 12 16 18 Q 16 12 10 12 Q 16 12 16 6 Z" fill="url(#starGradient)"/>
+                            <path class="logo-star-small" d="M26 3 Q 26 8 31 8 Q 26 8 26 13 Q 26 8 21 8 Q 26 8 26 3 Z" fill="url(#starGradient)"/>
+                        </g>
+                    </svg>
+                    <span class="name-text">deanna</span>
+                    <svg class="logo-right-greeting" viewBox="0 0 24 24" width="24" height="20" style="overflow: visible;">
+                        <path d="M4 20 L8 4" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 4 L18 12 L13 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </h1>
             
             <!-- Desktop: full body image -->
             <img src="new%20me.svg" alt="Deanna Tran" class="profile-avatar">
@@ -138,7 +126,7 @@
             <!-- Mobile: bust shot image -->
             <img src="torso.svg" alt="Deanna Tran" class="profile-avatar-mobile">
             
-            <p>i'm a senior product engineer at cloudflare, embedded across our security and trust teams.</p>
+            <p>i'm a <span class="typewriter-target">senior product engineer</span> at cloudflare, embedded across our security and trust teams.</p>
             <p>i'm good at ramping up quickly in ambiguous environments, and my passion is bridging the gap between business, product, and engineering to build solutions that actually fix workflows instead of just digitizing broken ones.</p>
             <p>before cloudflare, i was at early-stage startups spinning up design systems and executing rapid product pivots.</p>
             <p>outside of work, i'm a lifelong tinkerer and i'm obsessed with my cat, lion.</p>

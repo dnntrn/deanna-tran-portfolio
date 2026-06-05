@@ -938,88 +938,28 @@ p:last-child {
     }
 }
 
-/* Typewriter crossfade overlay */
-.greeting-wrapper {
-    position: relative;
-    display: inline-block;
+/* Typewriter effect for job title */
+.typewriter-target {
+    display: inline;
+    transition: color 0.5s ease;
 }
 
-/* Real greeting starts invisible */
-.greeting {
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.greeting.revealed {
-    opacity: 1;
-}
-
-/* Overlay clone: exact same flex layout as greeting */
-.typewriter-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 1;
-    transition: opacity 0.6s ease;
-    pointer-events: none;
-}
-
-.typewriter-overlay.fade-out {
-    opacity: 0;
-}
-
-/* Match greeting-prefix style */
-.overlay-prefix {
-    font-size: 1.75rem;
-    font-weight: 400;
-    line-height: 1.1;
-    color: var(--text-secondary);
-}
-
-/* Match name-logo style */
-.overlay-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-/* Placeholder for SVG stars: same dimensions */
-.overlay-placeholder {
-    display: inline-block;
-    flex-shrink: 0;
-}
-
-/* Match name-text but with solid color instead of gradient */
-.overlay-name {
-    font-size: 1.75rem;
-    font-weight: 600;
-    line-height: 1.1;
-    color: var(--text-primary);
-    transition: none;
-}
-
-/* Typing cursor on the name span */
-.overlay-name.typing {
-    border-right: 3px solid var(--accent-color);
-    padding-right: 4px;
+.typewriter-target.typing {
+    color: var(--accent-color);
+    border-right: 2px solid var(--accent-color);
+    padding-right: 2px;
     animation: blinkCursor 0.8s step-end infinite;
+}
+
+.typewriter-target.typing-done {
+    color: var(--text-primary);
+    border-right: none;
+    animation: none;
 }
 
 @keyframes blinkCursor {
     0%, 100% { border-color: var(--accent-color); }
     50% { border-color: transparent; }
-}
-
-/* Sequential paragraph fade-in base */
-.intro p {
-    will-change: opacity, transform;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* Reduced motion */
@@ -1037,23 +977,5 @@ p:last-child {
     
     .profile-avatar {
         animation: none;
-    }
-    
-    .typewriter-overlay.typing {
-        border-right: none;
-        animation: none;
-    }
-    
-    .greeting {
-        opacity: 1 !important;
-    }
-    
-    .typewriter-overlay {
-        display: none;
-    }
-    
-    .intro p {
-        opacity: 1 !important;
-        transform: none !important;
     }
 }

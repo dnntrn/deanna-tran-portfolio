@@ -242,26 +242,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===== Typewriter Effect =====
-function typeWriter(element, text, speed = 100) {
-    return new Promise((resolve) => {
-        let i = 0;
-        element.textContent = '';
-        element.classList.add('typing');
-        
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            } else {
-                element.classList.remove('typing');
-                resolve();
-            }
+function typeWriter(element, text, speed = 80) {
+    let i = 0;
+    const originalText = element.textContent;
+    element.textContent = '';
+    element.classList.add('typing');
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            element.classList.remove('typing');
+            element.classList.add('typing-done');
         }
-        
-        type();
-    });
+    }
+    
+    type();
 }
+
+// Type out job title on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const target = document.querySelector('.typewriter-target');
+    if (target) {
+        const text = target.textContent;
+        target.textContent = '';
+        // Small delay so the page feels settled
+        setTimeout(() => {
+            typeWriter(target, text, 90);
+        }, 400);
+    }
+});
 
 // ===== Cursor Glow Follow =====
 const cursorGlow = document.querySelector('.cursor-glow');
@@ -303,59 +315,6 @@ if (cursorGlow) {
         requestAnimationFrame(animateGlow);
     }
 }
-
-// ===== Sequential Paragraph Fade-In =====
-function animateParagraphs() {
-    const paragraphs = document.querySelectorAll('.intro p');
-    
-    paragraphs.forEach((p, index) => {
-        p.style.opacity = '0';
-        p.style.transform = 'translateY(20px)';
-        p.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
-        setTimeout(() => {
-            p.style.opacity = '1';
-            p.style.transform = 'translateY(0)';
-        }, 600 + (index * 300)); // Start after typewriter, stagger 300ms
-    });
-}
-
-// ===== Initialize on Page Load =====
-document.addEventListener('DOMContentLoaded', () => {
-    // Typewriter greeting with crossfade
-    const greeting = document.querySelector('.intro h1.greeting');
-    const overlay = document.querySelector('.typewriter-overlay');
-    const overlayPrefix = document.querySelector('.overlay-prefix');
-    const overlayName = document.querySelector('.overlay-name');
-    
-    if (greeting && overlay && overlayPrefix && overlayName) {
-        // Delay slightly to let page render
-        setTimeout(async () => {
-            // Type "hi! i'm" into the prefix span
-            await typeWriter(overlayPrefix, "hi! i'm", 100);
-            
-            // Type "deanna" into the name span
-            await typeWriter(overlayName, 'deanna', 100);
-            
-            // Brief pause so the completed text settles
-            await new Promise(resolve => setTimeout(resolve, 400));
-            
-            // Crossfade: fade out overlay, fade in styled greeting
-            overlay.classList.add('fade-out');
-            greeting.classList.add('revealed');
-            
-            // Remove overlay after crossfade completes
-            setTimeout(() => {
-                overlay.remove();
-            }, 600);
-        }, 300);
-    }
-    
-    // Animate paragraphs after greeting
-    setTimeout(() => {
-        animateParagraphs();
-    }, 100);
-});
 
 // ===== Console Easter Egg =====
 console.log('👋 Hey there! Like what you see? Let\'s build something together.');
