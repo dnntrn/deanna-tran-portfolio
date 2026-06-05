@@ -275,47 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ===== Cursor Glow Follow =====
-const cursorGlow = document.querySelector('.cursor-glow');
-
-if (cursorGlow) {
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let glowX = mouseX;
-    let glowY = mouseY;
-    let isMouseActive = false;
-    let mouseTimeout;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        if (!isMouseActive) {
-            isMouseActive = true;
-            cursorGlow.style.opacity = '1';
-            animateGlow();
-        }
-        
-        clearTimeout(mouseTimeout);
-        mouseTimeout = setTimeout(() => {
-            isMouseActive = false;
-            cursorGlow.style.opacity = '0';
-        }, 3000);
-    });
-    
-    function animateGlow() {
-        if (!isMouseActive) return;
-        
-        glowX += (mouseX - glowX) * 0.08;
-        glowY += (mouseY - glowY) * 0.08;
-        
-        cursorGlow.style.left = glowX + 'px';
-        cursorGlow.style.top = glowY + 'px';
-        
-        requestAnimationFrame(animateGlow);
-    }
-}
-
 // ===== Console Easter Egg =====
 console.log('👋 Hey there! Like what you see? Let\'s build something together.');
 console.log('💡 Click the star button to meet the ASCII cat! Click twice for a surprise...');
