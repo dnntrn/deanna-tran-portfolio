@@ -241,24 +241,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== Typewriter Effect =====
+// ===== Typewriter Effect with Crossfade =====
 function typeWriter(element, text, speed = 70) {
-    let i = 0;
-    element.textContent = '';
-    element.classList.add('typing');
-    
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else {
-            element.classList.remove('typing');
-            element.classList.add('typing-done');
+    return new Promise((resolve) => {
+        let i = 0;
+        element.textContent = '';
+        element.classList.add('typing');
+        
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                element.classList.remove('typing');
+                resolve();
+            }
         }
-    }
-    
-    type();
+        
+        type();
+    });
 }
 
 // ===== Cursor Glow Follow =====
@@ -320,20 +322,26 @@ function animateParagraphs() {
 
 // ===== Initialize on Page Load =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Typewriter greeting
+    // Typewriter greeting with crossfade
     const greeting = document.querySelector('.intro h1.greeting');
-    if (greeting) {
-        const originalHTML = greeting.innerHTML;
+    const overlay = document.querySelector('.typewriter-overlay');
+    
+    if (greeting && overlay) {
         const textToType = "hi! i'm deanna";
+        
         // Delay slightly to let page render
-        setTimeout(() => {
-            typeWriter(greeting, textToType, 70);
-            // Restore the full HTML (with SVG stars) after typing completes
-            const duration = textToType.length * 70 + 600;
+        setTimeout(async () => {
+            // Type into the overlay
+            await typeWriter(overlay, textToType, 70);
+            
+            // Crossfade: fade out overlay, fade in styled greeting
+            overlay.classList.add('fade-out');
+            greeting.classList.add('revealed');
+            
+            // Remove overlay after crossfade completes
             setTimeout(() => {
-                greeting.innerHTML = originalHTML;
-                greeting.classList.add('typing-done');
-            }, duration);
+                overlay.remove();
+            }, 600);
         }, 300);
     }
     
