@@ -938,19 +938,13 @@ p:last-child {
     }
 }
 
-/* Typewriter cursor effect */
-.intro-section h1.typing {
-    border-right: 3px solid var(--accent-color);
-    padding-right: 4px;
-    animation: blinkCursor 0.8s step-end infinite;
-}
-
 /* Typewriter crossfade overlay */
 .greeting-wrapper {
     position: relative;
     display: inline-block;
 }
 
+/* Real greeting starts invisible */
 .greeting {
     opacity: 0;
     transition: opacity 0.6s ease;
@@ -960,33 +954,59 @@ p:last-child {
     opacity: 1;
 }
 
+/* Overlay clone: exact same flex layout as greeting */
 .typewriter-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    color: var(--text-primary);
-    font-size: 1.75rem;
-    font-weight: 600;
-    line-height: 1.3;
-    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
     opacity: 1;
     transition: opacity 0.6s ease;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-}
-
-.typewriter-overlay.typing {
-    border-right: 3px solid var(--accent-color);
-    padding-right: 4px;
-    animation: blinkCursor 0.8s step-end infinite;
+    pointer-events: none;
 }
 
 .typewriter-overlay.fade-out {
     opacity: 0;
+}
+
+/* Match greeting-prefix style */
+.overlay-prefix {
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text-secondary);
+}
+
+/* Match name-logo style */
+.overlay-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Placeholder for SVG stars: same dimensions */
+.overlay-placeholder {
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Match name-text but with solid color instead of gradient */
+.overlay-name {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-primary);
+    transition: none;
+}
+
+/* Typing cursor on the name span */
+.overlay-name.typing {
+    border-right: 3px solid var(--accent-color);
+    padding-right: 4px;
+    animation: blinkCursor 0.8s step-end infinite;
 }
 
 @keyframes blinkCursor {
@@ -995,7 +1015,7 @@ p:last-child {
 }
 
 /* Sequential paragraph fade-in base */
-.intro-section p {
+.intro p {
     will-change: opacity, transform;
     opacity: 0;
     transform: translateY(20px);

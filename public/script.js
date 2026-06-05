@@ -241,8 +241,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== Typewriter Effect with Crossfade =====
-function typeWriter(element, text, speed = 70) {
+// ===== Typewriter Effect =====
+function typeWriter(element, text, speed = 100) {
     return new Promise((resolve) => {
         let i = 0;
         element.textContent = '';
@@ -325,14 +325,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typewriter greeting with crossfade
     const greeting = document.querySelector('.intro h1.greeting');
     const overlay = document.querySelector('.typewriter-overlay');
+    const overlayPrefix = document.querySelector('.overlay-prefix');
+    const overlayName = document.querySelector('.overlay-name');
     
-    if (greeting && overlay) {
-        const textToType = "hi! i'm deanna";
-        
+    if (greeting && overlay && overlayPrefix && overlayName) {
         // Delay slightly to let page render
         setTimeout(async () => {
-            // Type into the overlay
-            await typeWriter(overlay, textToType, 70);
+            // Type "hi! i'm" into the prefix span
+            await typeWriter(overlayPrefix, "hi! i'm", 100);
+            
+            // Type "deanna" into the name span
+            await typeWriter(overlayName, 'deanna', 100);
+            
+            // Brief pause so the completed text settles
+            await new Promise(resolve => setTimeout(resolve, 400));
             
             // Crossfade: fade out overlay, fade in styled greeting
             overlay.classList.add('fade-out');

@@ -103,6 +103,7 @@
     <main class="content" role="main">
         <section class="intro">
             <div class="greeting-wrapper">
+                <!-- Real styled greeting: invisible initially -->
                 <h1 class="greeting">
                     <span class="greeting-prefix">hi! i'm</span>
                     <span class="name-logo">
@@ -120,7 +121,15 @@
                         </svg>
                     </span>
                 </h1>
-                <div class="typewriter-overlay" aria-hidden="true"></div>
+                <!-- Structural clone overlay: same flex layout -->
+                <div class="typewriter-overlay" aria-hidden="true">
+                    <span class="overlay-prefix"></span>
+                    <span class="overlay-logo">
+                        <span class="overlay-placeholder" style="width: 28px; height: 20px;"></span>
+                        <span class="overlay-name"></span>
+                        <span class="overlay-placeholder" style="width: 24px; height: 20px;"></span>
+                    </span>
+                </div>
             </div>
             
             <!-- Desktop: full body image -->
