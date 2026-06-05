@@ -98,15 +98,18 @@ p:last-child {
 
 .cursor-glow {
     position: fixed;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
     pointer-events: none;
     z-index: 0;
     opacity: 0;
     transition: opacity 0.5s ease;
-    background: radial-gradient(circle, rgba(232, 165, 192, 0.08) 0%, transparent 70%);
     transform: translate(-50%, -50%);
+}
+
+.cursor-glow path {
+    opacity: 0.06;
+    filter: blur(16px);
 }
 
 /* Header with logo */
