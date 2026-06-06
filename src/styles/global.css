@@ -10,11 +10,11 @@
     --text-secondary: #6a6a7a;
     --text-muted: #9a9aaa;
     --border-color: rgba(0, 0, 0, 0.08);
-    --accent-color: #d3a4ff;
+    --accent-color: #a855f7;
     --accent-pink: #e8a5c0;
     --accent-purple: #d4a5e8;
-    --tag-bg: rgba(211, 164, 255, 0.1);
-    --tag-bg-hover: rgba(211, 164, 255, 0.15);
+    --tag-bg: rgba(168, 85, 247, 0.1);
+    --tag-bg-hover: rgba(168, 85, 247, 0.15);
     --speech-bg: rgba(255, 255, 255, 0.95);
 }
 
