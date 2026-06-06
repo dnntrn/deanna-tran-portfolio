@@ -832,20 +832,30 @@ p:last-child {
     }
 }
 
-/* Accent text (isolated phrases) */
+/* Isolated accent phrases — visible immediately on load */
 .typewriter-target {
     color: var(--accent-color);
 }
 
-/* Paragraphs start hidden and fade in sequentially */
-.typewriter-paragraph,
+/* Surrounding text fades in when paragraph becomes visible */
+.typewriter-label {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.typewriter-paragraph.visible .typewriter-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Full paragraphs fade in as complete blocks */
 .fade-paragraph {
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.typewriter-paragraph.visible,
 .fade-paragraph.visible {
     opacity: 1;
     transform: translateY(0);
@@ -863,7 +873,12 @@ p:last-child {
         display: none;
     }
 
-    .typewriter-paragraph,
+    .typewriter-label {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
     .fade-paragraph {
         opacity: 1;
         transform: none;
