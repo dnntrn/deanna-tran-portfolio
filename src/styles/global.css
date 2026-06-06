@@ -259,6 +259,9 @@ p:last-child {
 .intro {
     margin-bottom: 4rem;
     position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .intro h1 {
