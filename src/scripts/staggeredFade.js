@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     async function runSequence() {
         // Pause before starting (let page settle)
-        await new Promise(r => setTimeout(r, 300));
+        await new Promise(r => setTimeout(r, 1500));
         
         // Fade in each paragraph sequentially as a complete block
         for (let i = 0; i < paragraphs.length; i++) {
