@@ -260,7 +260,7 @@ p:last-child {
     margin-bottom: 4rem;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 2rem;
     justify-content: center;
 }
@@ -275,17 +275,19 @@ p:last-child {
 .text-column {
     max-width: 640px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Cat playing SVG — floats right at bottom of text column */
+/* Cat playing SVG — pushed to bottom right of text column */
 .cat-playing {
-    float: right;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
     width: 220px;
     height: auto;
     display: block;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
 }
 
 /* Greeting with logo-wrapped name */
