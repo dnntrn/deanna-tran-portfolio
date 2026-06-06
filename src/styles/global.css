@@ -264,6 +264,12 @@ p:last-child {
     margin-right: auto;
 }
 
+.intro::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .intro h1 {
     font-size: 1.75rem;
     font-weight: 600;
@@ -271,12 +277,22 @@ p:last-child {
     color: var(--text-primary);
 }
 
-/* Cat playing SVG at feet */
+/* Cat playing SVG at feet — floats right under avatar on desktop */
 .cat-playing {
-    display: block;
-    margin: 2rem auto 0;
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
     width: 220px;
     height: auto;
+    display: block;
+    clear: right;
+}
+
+/* Hide playing cat on mobile */
+@media (max-width: 640px) {
+    .cat-playing {
+        display: none;
+    }
 }
 
 /* Greeting with logo-wrapped name */
