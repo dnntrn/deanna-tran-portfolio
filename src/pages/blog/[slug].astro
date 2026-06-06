@@ -18,20 +18,20 @@ const { Content } = await render(post);
   title={`${post.data.title} | Deanna Tran`}
   description={post.data.description}
 >
-  <article class="blog-post">
-    <header class="blog-post-header">
-      <a href="/blog" class="back-link">&larr; Back to posts</a>
-      <time datetime={post.data.pubDate.toISOString()}>
+  <article class="max-w-full">
+    <header class="mb-8">
+      <a href="/blog" class="inline-block text-sm text-text-secondary no-underline mb-4 transition-colors duration-300 hover:text-accent">&larr; Back to posts</a>
+      <time datetime={post.data.pubDate.toISOString()} class="block text-sm text-text-muted mb-3">
         {post.data.pubDate.toLocaleDateString('en-US', { 
           year: 'numeric', 
           month: 'long', 
           day: 'numeric' 
         })}
       </time>
-      <h1>{post.data.title}</h1>
+      <h1 class="text-3xl font-semibold text-text-primary mb-0">{post.data.title}</h1>
     </header>
     
-    <div class="blog-post-content">
+    <div class="leading-relaxed blog-post-content">
       <Content />
     </div>
   </article>

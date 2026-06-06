@@ -10,25 +10,25 @@ posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
   title="Blog | Deanna Tran"
   description="Blog posts by Deanna Tran, Senior Product Engineer at Cloudflare. Thoughts on engineering, product, and tinkering."
 >
-  <section class="blog">
-    <h1>blog</h1>
-    <p class="section-intro">thoughts on engineering, product, and random tinkering.</p>
+  <section class="mt-16">
+    <h1 class="text-2xl font-semibold mb-6 text-text-primary">blog</h1>
+    <p class="text-base mb-8 -mt-2 text-text-secondary">thoughts on engineering, product, and random tinkering.</p>
     
     {posts.map((post) => {
       const slug = post.id.replace(/\.md$/, '');
       return (
-        <article class="blog-preview">
-          <time datetime={post.data.pubDate.toISOString()}>
+        <article class="mb-10 pb-8 border-b border-border last:border-b-0">
+          <time datetime={post.data.pubDate.toISOString()} class="block text-[0.8125rem] text-text-muted mb-2">
             {post.data.pubDate.toLocaleDateString('en-US', { 
               year: 'numeric', 
               month: 'long', 
               day: 'numeric' 
             })}
           </time>
-          <h2>
-            <a href={`/blog/${slug}`}>{post.data.title}</a>
+          <h2 class="text-xl font-semibold mb-3">
+            <a href={`/blog/${slug}`} class="text-text-primary no-underline transition-colors duration-300 hover:text-accent">{post.data.title}</a>
           </h2>
-          <p>{post.data.description}</p>
+          <p class="text-text-secondary mb-0">{post.data.description}</p>
         </article>
       );
     })}

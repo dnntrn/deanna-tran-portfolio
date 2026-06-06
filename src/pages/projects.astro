@@ -6,13 +6,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Projects | Deanna Tran"
   description="Projects by Deanna Tran, Senior Product Engineer at Cloudflare. Creator of Deckcraft and other developer tools."
 >
-  <section class="projects">
-    <h1>projects</h1>
-    <p class="section-intro">things i've built and experiments i'm tinkering with.</p>
+  <section class="mt-16">
+    <h1 class="text-2xl font-semibold mb-6 text-text-primary">projects</h1>
+    <p class="text-base mb-8 -mt-2 text-text-secondary">things i've built and experiments i'm tinkering with.</p>
     
-    <article class="project-item">
-      <div class="project-header">
-        <div class="project-logo">
+    <article class="py-6 border-t border-border">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="shrink-0">
           <svg class="logo-project" viewBox="0 0 57 24" width="28" height="12" style="overflow: visible;">
             <defs>
               <linearGradient id="starGradientSmall" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -29,15 +29,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <path d="M13 4 L18 12 L13 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(26, 0)"/>
           </svg>
         </div>
-        <h2 class="project-title">
-          <a href="https://github.com/dnntrn/deckcraft" target="_blank" rel="noopener noreferrer">deckcraft</a>
+        <h2 class="project-title text-xl font-semibold">
+          <a href="https://github.com/dnntrn/deckcraft" target="_blank" rel="noopener noreferrer" class="text-text-primary no-underline inline-flex items-center gap-2">deckcraft</a>
         </h2>
       </div>
-      <p class="project-description">an ai skill that crafts slides geared toward developers. edit code per slide and export to pptx via images.</p>
-      <div class="project-tags">
-        <span class="tag">ai</span>
-        <span class="tag">pptx</span>
-        <span class="tag">developer tools</span>
+      <p class="text-text-secondary mb-3 text-base">an ai skill that crafts slides geared toward developers. edit code per slide and export to pptx via images.</p>
+      <div class="flex gap-2 flex-wrap">
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">ai</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">pptx</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">developer tools</span>
       </div>
     </article>
   </section>

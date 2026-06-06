@@ -6,14 +6,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Deanna Tran - Senior Product Engineer | Cloudflare"
   description="Deanna Tran is a Senior Product Engineer at Cloudflare in NYC. Building developer tools, operational platforms, and expressive interfaces. Creator of Deckcraft."
 >
-  <section class="intro">
+  <section class="intro mb-16 relative flex items-stretch gap-8 justify-center max-md:flex-col max-md:items-center">
     <!-- Mobile: bust shot image -->
-    <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar-mobile">
+    <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar-mobile block md:hidden w-[260px] mx-auto mb-4">
 
-    <div class="text-column">
-      <h1 class="greeting">
-        <span class="greeting-prefix">hi! i'm</span>
-        <span class="name-logo">
+    <div class="text-column max-w-[640px] flex-1 flex flex-col max-md:max-w-full">
+      <h1 class="greeting flex flex-wrap items-center gap-2 text-5xl font-semibold mb-6 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)] max-md:text-2xl">
+        <span class="greeting-prefix font-normal text-white">hi! i'm</span>
+        <span class="name-logo inline-flex items-center gap-1">
           <svg class="logo-left-greeting" viewBox="0 0 33 24" width="28" height="20" style="overflow: visible;">
             <path d="M8 4 L3 12 L8 20" fill="none" stroke="#7c3ead" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             <g filter="url(#starGlow)">
@@ -29,32 +29,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </span>
       </h1>
 
-      <p class="typewriter-paragraph">
+      <p class="typewriter-paragraph mb-5">
         <span class="typewriter-target">i'm a senior product engineer at cloudflare</span>
         <span class="typewriter-label">, working across security and trust teams.</span>
       </p>
       
-      <p class="typewriter-paragraph">
+      <p class="typewriter-paragraph mb-5">
         <span class="typewriter-target">i ramp up fast in ambiguity</span>
         <span class="typewriter-label"> — whether it's a new codebase, a new team, or a product pivot.</span>
       </p>
       
-      <p class="typewriter-paragraph">
+      <p class="typewriter-paragraph mb-5">
         <span class="typewriter-target">i try to fix workflows, not just digitize broken ones</span>
         <span class="typewriter-label">. my passion is at the intersection of business, product, and engineering.</span>
       </p>
-      <p class="fade-paragraph">before cloudflare, i was at early-stage startups spinning up design systems and executing rapid product pivots.</p>
-      <p class="typewriter-paragraph">
+      <p class="fade-paragraph mb-5">before cloudflare, i was at early-stage startups spinning up design systems and executing rapid product pivots.</p>
+      <p class="typewriter-paragraph mb-5">
         <span class="typewriter-label">outside of work, i'm a lifelong tinkerer, and </span>
         <span class="typewriter-target">i love my cat, lion</span>
         <span class="typewriter-label">.</span>
       </p>
 
-      <img src="/Main%20cat%20playing.svg" alt="Lion playing" class="cat-playing">
+      <img src="/Main%20cat%20playing.svg" alt="Lion playing" class="cat-playing w-[280px] h-auto block mt-auto ml-auto mr-0 mb-2 max-md:hidden">
     </div>
     
     <!-- Desktop: kawaii_me SVG, its own column -->
-    <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar">
+    <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar hidden md:block w-[350px] h-auto z-10 shrink-0">
   </section>
 
   <script is:inline src="/scripts/staggeredFade.js"></script>
