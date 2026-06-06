@@ -832,54 +832,20 @@ p:last-child {
     }
 }
 
-/* Typewriter effect */
+/* Accent text (isolated phrases) */
 .typewriter-target {
     color: var(--accent-color);
 }
 
-.typewriter-target.typing::after {
-    content: '';
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background: var(--accent-color);
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    animation: blinkCursor 0.8s step-end infinite;
-}
-
-.typewriter-target.typing-done {
-    color: var(--text-primary);
-    transition: color 0.5s ease;
-    transition-delay: 0.8s;
-}
-
-.typewriter-target.typing-done::after {
-    display: none;
-}
-
-@keyframes blinkCursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* Typewriter labels (surrounding text) fade in when paragraph becomes visible */
-.typewriter-label {
-    opacity: 0;
-    transition: opacity 1.2s ease;
-}
-
-.typewriter-paragraph.visible .typewriter-label {
-    opacity: 1;
-}
-
-/* Paragraphs fade in sequentially */
+/* Paragraphs start hidden and fade in sequentially */
+.typewriter-paragraph,
 .fade-paragraph {
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.typewriter-paragraph.visible,
 .fade-paragraph.visible {
     opacity: 1;
     transform: translateY(0);
@@ -891,21 +857,13 @@ p:last-child {
     .logo-star-small {
         animation: none;
     }
-    
+
     .noise-overlay,
     .ascii-cat {
         display: none;
     }
-    
-    .typewriter-target.typing::after {
-        display: none;
-        animation: none;
-    }
-    
-    .typewriter-paragraph .typewriter-label {
-        opacity: 1;
-    }
-    
+
+    .typewriter-paragraph,
     .fade-paragraph {
         opacity: 1;
         transform: none;
