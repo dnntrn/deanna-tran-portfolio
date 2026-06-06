@@ -315,7 +315,7 @@ p:last-child {
     float: right;
     margin-left: 1rem;
     margin-bottom: 0.5rem;
-    width: 80px;
+    width: 140px;
     height: auto;
     z-index: 1;
     display: block;
@@ -324,7 +324,7 @@ p:last-child {
 /* Mobile profile image - hidden on desktop */
 .profile-avatar-mobile {
     display: none;
-    width: 100px;
+    width: 160px;
     height: auto;
     margin: 1rem auto;
 }
