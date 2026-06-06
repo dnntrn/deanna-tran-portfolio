@@ -1,9 +1,11 @@
 # Deanna Tran
 
 ## Bio
-Deanna Tran is a Senior Product Engineer at Cloudflare in NYC, working across security and trust teams. She ramps up fast in ambiguity — whether it's a new codebase, a new team, or a product pivot. She tries to fix workflows, not just digitize broken ones, with a passion at the intersection of business, product, and engineering.
+Deanna Tran is a Senior Product Engineer at Cloudflare in NYC, operating like an internal forward-deployed engineer across the security and trust organization. She drops in wherever the need is greatest to map the customer problem, define the technical roadmap, and align the team to ship—always focusing on fixing underlying workflows instead of just digitizing broken ones.
 
-Before Cloudflare, she was at early-stage startups spinning up design systems and executing rapid product pivots.
+She is comfortable in that high-ambiguity loop: jumping into a new codebase or team. Her passion lies right at the intersection of business, product, and engineering.
+
+Before Cloudflare, she was at early-stage startups spinning up design systems and pivoting to figure out the whats and whys of the product.
 
 Outside of work, she's a lifelong tinkerer and loves her cat, Lion.
 
