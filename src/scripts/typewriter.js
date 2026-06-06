@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const target of targets) {
             const text = target.getAttribute('data-text');
             if (!text) continue;
-            await typeWriter(target, text, 70);
+            const speed = parseInt(target.getAttribute('data-speed')) || 70;
+            await typeWriter(target, text, speed);
             
             // Pause between phrases (except after the last one)
             if (target !== targets[targets.length - 1]) {
