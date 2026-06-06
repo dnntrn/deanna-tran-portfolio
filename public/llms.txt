@@ -1,0 +1,25 @@
+# Deanna Tran
+
+## Bio
+Deanna Tran is a Senior Product Engineer at Cloudflare in NYC, working across security and trust teams. She ramps up fast in ambiguity — whether it's a new codebase, a new team, or a product pivot. She tries to fix workflows, not just digitize broken ones, with a passion at the intersection of business, product, and engineering.
+
+Before Cloudflare, she was at early-stage startups spinning up design systems and executing rapid product pivots.
+
+Outside of work, she's a lifelong tinkerer and loves her cat, Lion.
+
+## Skills
+- React
+- TypeScript
+- Cloudflare Workers
+- Product Engineering
+- Developer Tools
+- Full-Stack Development
+- UI/UX Design
+
+## Projects
+- Deckcraft: An AI skill that crafts slides geared toward developers. Edit code per slide and export to PPTX via images.
+
+## Contact
+- GitHub: https://github.com/dnntrn
+- LinkedIn: https://www.linkedin.com/in/deannatran/
+- Website: https://deannatran.com
