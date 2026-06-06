@@ -245,7 +245,6 @@ p:last-child {
 
 /* Main content */
 .content {
-    max-width: 680px;
     margin: 0 auto;
     padding: 2rem;
     position: relative;
@@ -256,7 +255,6 @@ p:last-child {
 .intro {
     margin-bottom: 4rem;
     position: relative;
-    max-width: 520px;
 }
 
 .intro h1 {
@@ -473,7 +471,6 @@ p:last-child {
 
 /* Projects section */
 .projects {
-    max-width: 520px;
 }
 
 .projects h1 {
@@ -590,7 +587,6 @@ p:last-child {
 /* Blog section */
 .blog {
     margin-top: 4rem;
-    max-width: 520px;
 }
 
 .blog h1 {
@@ -711,7 +707,6 @@ p:last-child {
 
 /* Footer */
 .site-footer {
-    max-width: 680px;
     margin: 0 auto;
     padding: 3rem 2rem 2rem;
     display: flex;
