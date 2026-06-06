@@ -271,6 +271,14 @@ p:last-child {
     color: var(--text-primary);
 }
 
+/* Cat playing SVG at feet */
+.cat-playing {
+    display: block;
+    margin: 2rem auto 0;
+    width: 220px;
+    height: auto;
+}
+
 /* Greeting with logo-wrapped name */
 .greeting {
     display: flex;
