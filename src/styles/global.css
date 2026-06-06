@@ -834,13 +834,13 @@ p:last-child {
     50% { opacity: 0; }
 }
 
-/* Hidden text in first paragraph fades in */
+/* Hidden text fades in when paragraph becomes visible */
 .hidden-text {
     opacity: 0;
     transition: opacity 1.2s ease;
 }
 
-.first-paragraph.visible .hidden-text {
+.typewriter-paragraph.visible .hidden-text {
     opacity: 1;
 }
 
@@ -873,9 +873,8 @@ p:last-child {
         animation: none;
     }
     
-    .hidden-text {
+    .typewriter-paragraph .hidden-text {
         opacity: 1;
-        transition: none;
     }
     
     .fade-paragraph {
