@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Projects | Deanna Tran"
+  description="Projects by Deanna Tran, Senior Product Engineer at Cloudflare. Creator of Deckcraft and other developer tools."
+>
+  <section class="projects">
+    <h1>projects</h1>
+    <p class="section-intro">things i've built and experiments i'm tinkering with.</p>
+    
+    <article class="project-item">
+      <div class="project-header">
+        <div class="project-logo">
+          <svg class="logo-project" viewBox="0 0 57 24" width="28" height="12" style="overflow: visible;">
+            <defs>
+              <linearGradient id="starGradientSmall" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e8a5c0"/>
+                <stop offset="33%" stop-color="#f4c2a1"/>
+                <stop offset="66%" stop-color="#d4a5e8"/>
+                <stop offset="100%" stop-color="#e8a5c0"/>
+              </linearGradient>
+            </defs>
+            <path d="M8 4 L3 12 L8 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 6 Q 16 12 22 12 Q 16 12 16 18 Q 16 12 10 12 Q 16 12 16 6 Z" fill="url(#starGradientSmall)"/>
+            <path d="M26 3 Q 26 8 31 8 Q 26 8 26 13 Q 26 8 21 8 Q 26 8 26 3 Z" fill="url(#starGradientSmall)"/>
+            <path d="M4 20 L8 4" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(26, 0)"/>
+            <path d="M13 4 L18 12 L13 20" fill="none" stroke="#d3a4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(26, 0)"/>
+          </svg>
+        </div>
+        <h2 class="project-title">
+          <a href="https://github.com/dnntrn/deckcraft" target="_blank" rel="noopener noreferrer">deckcraft</a>
+        </h2>
+      </div>
+      <p class="project-description">an ai skill that crafts slides geared toward developers. edit code per slide and export to pptx via images.</p>
+      <div class="project-tags">
+        <span class="tag">ai</span>
+        <span class="tag">pptx</span>
+        <span class="tag">developer tools</span>
+      </div>
+    </article>
+  </section>
+</BaseLayout>
