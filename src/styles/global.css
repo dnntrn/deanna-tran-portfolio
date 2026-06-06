@@ -312,7 +312,17 @@ p:last-child {
 
 .name-text {
     font-weight: 600;
-    color: #ffffff;
+    background: linear-gradient(90deg, oklch(70% 0.15 340), oklch(75% 0.12 30), oklch(70% 0.08 280), oklch(70% 0.15 340));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .logo-left-greeting,
