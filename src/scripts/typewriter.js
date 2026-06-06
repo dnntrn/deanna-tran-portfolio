@@ -29,9 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     async function runSequence() {
         // Type each target sequentially
         for (const target of targets) {
-            const text = target.textContent;
-            target.textContent = '';
-            target.classList.add('typing');
+            const text = target.getAttribute('data-text');
+            if (!text) continue;
             await typeWriter(target, text, 70);
             
             // Pause between phrases (except after the last one)
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // After all typing is done, pause then reveal everything
         await new Promise(r => setTimeout(r, 1200));
         
-        // Add .visible to all typewriter-paragraphs (triggers hidden-text fade-in)
+        // Add .visible to all typewriter-paragraphs (triggers label fade-in)
         document.querySelectorAll('.typewriter-paragraph').forEach(p => {
             p.classList.add('visible');
         });
