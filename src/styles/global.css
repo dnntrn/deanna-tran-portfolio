@@ -273,7 +273,7 @@ p:last-child {
 }
 
 .text-column {
-    max-width: 900px;
+    max-width: 640px;
     flex: 1;
 }
 
