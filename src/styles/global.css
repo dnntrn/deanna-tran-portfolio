@@ -198,9 +198,14 @@ p:last-child {
     animation: starTwinkleFast 0.6s ease-in-out infinite;
 }
 
-/* ===== Name Gradient ===== */
-.name-text {
-    font-weight: 600;
+/* ===== Full greeting gradient on hover ===== */
+.greeting {
+    color: var(--text-primary);
+}
+
+.greeting:hover,
+.greeting:hover .greeting-prefix,
+.greeting:hover .name-text {
     background: linear-gradient(90deg, oklch(70% 0.15 340), oklch(75% 0.12 30), oklch(70% 0.08 280), oklch(70% 0.15 340));
     background-size: 200% 100%;
     -webkit-background-clip: text;
