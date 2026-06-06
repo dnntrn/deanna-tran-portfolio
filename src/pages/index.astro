@@ -25,13 +25,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </span>
     </h1>
     
-    <!-- Desktop: full body image -->
-    <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar">
-
     <!-- Mobile: bust shot image -->
     <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar-mobile">
 
-    <img src="/Main%20cat%20playing.svg" alt="Lion playing" class="cat-playing">
+    <!-- Desktop: avatar + cat side by side at feet -->
+    <div class="avatar-group">
+      <img src="/Main%20cat%20playing.svg" alt="Lion playing" class="cat-playing">
+      <img src="/kawaii_me.svg" alt="Deanna Tran" class="profile-avatar">
+    </div>
 
     <p class="typewriter-paragraph">
       <span class="typewriter-target" data-text="i'm a senior product engineer at cloudflare" data-speed="90"></span>

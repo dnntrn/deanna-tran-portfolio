@@ -277,20 +277,25 @@ p:last-child {
     color: var(--text-primary);
 }
 
-/* Cat playing SVG at feet — floats right under avatar on desktop */
-.cat-playing {
+/* Avatar + cat group — side by side, aligned at bottom */
+.avatar-group {
     float: right;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
     margin-left: 1rem;
     margin-bottom: 0.5rem;
+}
+
+.avatar-group .cat-playing {
     width: 220px;
     height: auto;
     display: block;
-    clear: right;
 }
 
-/* Hide playing cat on mobile */
+/* Hide avatar group on mobile */
 @media (max-width: 640px) {
-    .cat-playing {
+    .avatar-group {
         display: none;
     }
 }
