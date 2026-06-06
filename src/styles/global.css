@@ -259,15 +259,10 @@ p:last-child {
 .intro {
     margin-bottom: 4rem;
     position: relative;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.intro::after {
-    content: "";
-    display: table;
-    clear: both;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .intro h1 {
@@ -277,27 +272,20 @@ p:last-child {
     color: var(--text-primary);
 }
 
-/* Avatar + cat group — side by side, aligned at bottom */
-.avatar-group {
-    float: right;
-    display: flex;
-    align-items: flex-end;
-    gap: 0.5rem;
-    margin-left: 1rem;
-    margin-bottom: 0.5rem;
+.text-column {
+    max-width: 900px;
+    flex: 1;
 }
 
-.avatar-group .cat-playing {
+/* Cat playing SVG — floats right at bottom of text column */
+.cat-playing {
+    float: right;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
     width: 220px;
     height: auto;
     display: block;
-}
-
-/* Hide avatar group on mobile */
-@media (max-width: 640px) {
-    .avatar-group {
-        display: none;
-    }
 }
 
 /* Greeting with logo-wrapped name */
@@ -346,13 +334,12 @@ p:last-child {
 
 /* Profile avatar - full body on desktop */
 .profile-avatar {
-    float: right;
-    margin-left: 1rem;
-    margin-bottom: 0.5rem;
     width: 350px;
     height: auto;
     z-index: 1;
     display: block;
+    flex-shrink: 0;
+    margin-top: 0;
 }
 
 /* Mobile profile image - hidden on desktop */
@@ -812,18 +799,27 @@ p:last-child {
         font-size: 1.5rem;
     }
     
+    .intro {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-column {
+        max-width: 100%;
+    }
+
+    .cat-playing {
+        display: none;
+    }
+
     .profile-avatar {
         display: none;
     }
 
     .profile-avatar-mobile {
         display: block;
-        width: 100px;
-        margin: 0 auto;
-    }
-
-    .intro {
-        max-width: 100%;
+        width: 260px;
+        margin: 0 auto 1rem;
     }
     
     .site-footer {
