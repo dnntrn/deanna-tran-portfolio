@@ -54,6 +54,8 @@ body {
     min-height: 100vh;
     position: relative;
     transition: background 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
@@ -249,6 +251,8 @@ p:last-child {
     padding: 2rem;
     position: relative;
     z-index: 1;
+    flex: 1;
+    width: 100%;
 }
 
 /* Intro section */
