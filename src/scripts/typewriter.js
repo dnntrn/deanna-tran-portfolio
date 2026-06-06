@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeParagraphs = document.querySelectorAll('.fade-paragraph');
     
     async function runSequence() {
+        // Pause before starting first phrase (let page settle)
+        await new Promise(r => setTimeout(r, 1000));
+        
         // Type each target sequentially
         for (const target of targets) {
             const text = target.getAttribute('data-text');
