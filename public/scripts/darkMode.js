@@ -1,7 +1,7 @@
 // Dark Mode Toggle
 const themeToggle = document.querySelector('.theme-toggle');
 
-const currentTheme = localStorage.getItem('theme') || 'light';
+const currentTheme = localStorage.getItem('theme') || 'dark';
 document.documentElement.setAttribute('data-theme', currentTheme);
 
 if (themeToggle) {

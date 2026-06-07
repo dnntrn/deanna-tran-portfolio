@@ -10,6 +10,8 @@ const {
   title = "Deanna Tran - Senior Product Engineer | Cloudflare",
   description = "Deanna Tran is a Senior Product Engineer at Cloudflare in NYC. Building developer tools, operational platforms, and expressive interfaces. Creator of Deckcraft."
 } = Astro.props;
+
+const pathname = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
@@ -79,8 +81,8 @@ const {
     </a>
     
     <nav class="flex items-center gap-8 max-md:gap-6" aria-label="Main navigation">
-      <a href="/projects" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]">Projects</a>
-      <a href="/resume" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]">Resume</a>
+      <a href="/projects" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]" aria-current={pathname === '/projects' ? 'page' : undefined}>Projects</a>
+      <a href="/resume" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]" aria-current={pathname === '/resume' ? 'page' : undefined}>Resume</a>
     </nav>
 
     <div class="flex items-center gap-2">

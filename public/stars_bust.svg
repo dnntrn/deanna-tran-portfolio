@@ -1,21 +1,44 @@
 <svg width="84" height="94" viewBox="0 0 84 94" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="stars_bust">
-<path id="Star 1" d="M14.5 63.1678L14.8 65.1678L16 65.6678L14.8 66.1678L14.5 68.1678L14.2 66.1678L13 65.6678L14.2 65.1678L14.5 63.1678Z" fill="#EC4899"/>
-<path id="Star 8" d="M81.5 27.1678L82 29.1678L84 29.6678L82 30.1678L81.5 32.1678L81 30.1678L79 29.6678L81 29.1678L81.5 27.1678Z" fill="#EC4899"/>
+<style>
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.7; filter: brightness(1); }
+  25% { opacity: 1; filter: brightness(1.3); }
+  50% { opacity: 0.8; filter: brightness(1.1); }
+  75% { opacity: 1; filter: brightness(1.2); }
+}
+@keyframes starTwinkleFast {
+  0%, 100% { opacity: 0.6; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.4); }
+}
+@keyframes starTwinkleSlow {
+  0%, 100% { opacity: 0.8; filter: brightness(1); }
+  33% { opacity: 0.5; filter: brightness(0.9); }
+  66% { opacity: 1; filter: brightness(1.25); }
+}
+.t1 { animation: starTwinkle 3s ease-in-out infinite; }
+.t2 { animation: starTwinkleFast 2.2s ease-in-out infinite; animation-delay: 0.3s; }
+.t3 { animation: starTwinkleSlow 3.5s ease-in-out infinite; animation-delay: 0.7s; }
+.t4 { animation: starTwinkle 2.8s ease-in-out infinite; animation-delay: 1.1s; }
+.t5 { animation: starTwinkleFast 2s ease-in-out infinite; animation-delay: 1.6s; }
+.t6 { animation: starTwinkleSlow 4s ease-in-out infinite; animation-delay: 2.1s; }
+</style>
+<path id="Star 1" class="t1" d="M14.5 63.1678L14.8 65.1678L16 65.6678L14.8 66.1678L14.5 68.1678L14.2 66.1678L13 65.6678L14.2 65.1678L14.5 63.1678Z" fill="#EC4899"/>
+<path id="Star 8" class="t6" d="M81.5 27.1678L82 29.1678L84 29.6678L82 30.1678L81.5 32.1678L81 30.1678L79 29.6678L81 29.1678L81.5 27.1678Z" fill="#EC4899"/>
 <path id="Star 10" d="M21.5 41.1678L22 43.1678L24 43.6678L22 44.1678L21.5 46.1678L21 44.1678L19 43.6678L21 43.1678L21.5 41.1678Z" fill="#EC4899"/>
 <path id="Star 2" d="M76 60.1678L76.6 62.9678L79 63.6678L76.6 64.3678L76 67.1678L75.4 64.3678L73 63.6678L75.4 62.9678L76 60.1678Z" fill="#D946EF"/>
 <path id="Star 9" d="M9 68.1678L9.6 70.9678L12 71.6678L9.6 72.3678L9 75.1678L8.4 72.3678L6 71.6678L8.4 70.9678L9 68.1678Z" fill="#D946EF"/>
-<path id="Star 7" d="M15 14.1678L15.6 16.9678L18 17.6678L15.6 18.3678L15 21.1678L14.4 18.3678L12 17.6678L14.4 16.9678L15 14.1678Z" fill="#D946EF"/>
-<path id="Star 13" d="M2.5 34.1678L3 36.5678L5 37.1678L3 37.7678L2.5 40.1678L2 37.7678L0 37.1678L2 36.5678L2.5 34.1678Z" fill="#D946EF"/>
+<path id="Star 7" class="t2" d="M15 14.1678L15.6 16.9678L18 17.6678L15.6 18.3678L15 21.1678L14.4 18.3678L12 17.6678L14.4 16.9678L15 14.1678Z" fill="#D946EF"/>
+<path id="Star 13" class="t3" d="M2.5 34.1678L3 36.5678L5 37.1678L3 37.7678L2.5 40.1678L2 37.7678L0 37.1678L2 36.5678L2.5 34.1678Z" fill="#D946EF"/>
 <path id="Star 16" d="M7.5 50.1678L8 52.5678L10 53.1678L8 53.7678L7.5 56.1678L7 53.7678L5 53.1678L7 52.5678L7.5 50.1678Z" fill="#D946EF"/>
 <path id="Star 14" d="M72.5 40.1678L73 42.5678L75 43.1678L73 43.7678L72.5 46.1678L72 43.7678L70 43.1678L72 42.5678L72.5 40.1678Z" fill="#D946EF"/>
-<path id="Star 3" d="M80 56.1678L80.4 57.7678L82 58.1678L80.4 58.5678L80 60.1678L79.6 58.5678L78 58.1678L79.6 57.7678L80 56.1678Z" fill="#EC4899"/>
+<path id="Star 3" class="t4" d="M80 56.1678L80.4 57.7678L82 58.1678L80.4 58.5678L80 60.1678L79.6 58.5678L78 58.1678L79.6 57.7678L80 56.1678Z" fill="#EC4899"/>
 <path id="Star 6" d="M82 68.1678L82.4 69.7678L84 70.1678L82.4 70.5678L82 72.1678L81.6 70.5678L80 70.1678L81.6 69.7678L82 68.1678Z" fill="#EC4899"/>
 <path id="Star 5" d="M7 67.1678L7.2 67.9678L8 68.1678L7.2 68.3678L7 69.1678L6.8 68.3678L6 68.1678L6.8 67.9678L7 67.1678Z" fill="#EC4899"/>
 <path id="Star 12" d="M32 2.16776L32.2 2.96776L33 3.16776L32.2 3.36776L32 4.16776L31.8 3.36776L31 3.16776L31.8 2.96776L32 2.16776Z" fill="#EC4899"/>
 <path id="Star 15" d="M18 46.1678L18.2 46.9678L19 47.1678L18.2 47.3678L18 48.1678L17.8 47.3678L17 47.1678L17.8 46.9678L18 46.1678Z" fill="#EC4899"/>
 <path id="Star 4" d="M61 53.1678L61.2 53.9678L62 54.1678L61.2 54.3678L61 55.1678L60.8 54.3678L60 54.1678L60.8 53.9678L61 53.1678Z" fill="#D946EF"/>
-<path id="Star 11" d="M68 8.16776L68.2 8.96776L69 9.16776L68.2 9.36776L68 10.1678L67.8 9.36776L67 9.16776L67.8 8.96776L68 8.16776Z" fill="#D946EF"/>
+<path id="Star 11" class="t5" d="M68 8.16776L68.2 8.96776L69 9.16776L68.2 9.36776L68 10.1678L67.8 9.36776L67 9.16776L67.8 8.96776L68 8.16776Z" fill="#D946EF"/>
 <path id="Vector" d="M32.2447 59.4725C28.1447 61.1725 23.4447 63.1725 21.9447 65.0725C14.9437 70.6733 12.4577 81.5296 13.0965 90.4725C13.8965 91.3725 25.0447 92.6725 27.4447 91.9725V83.2725L33.4447 67.2725L32.2447 59.4725Z" fill="#6986A2" stroke="#12110C" stroke-width="0.4631" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="Vector_2" d="M65.3447 63.4725C69.8447 65.4725 71.149 68.1355 72.8447 69.9725C78.8447 76.4725 76.8447 80.9725 77.3447 90.9725C76.4232 91.7476 68.5277 93.0117 66.2539 91.9725L64.8447 88.9725L63.9402 72.1907L65.3447 63.4725Z" fill="#6986A2" stroke="#12110C" stroke-width="0.4631" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="Vector_3" d="M50.8447 53.9725C48.3447 53.9725 46.7265 57.4975 42.8447 56.4725C37.7602 55.4115 31.1141 60.6006 26.8447 62.4725C25.2163 66.6048 22.7473 71.4442 22.5354 78.5274L66.3447 78.5274C66.672 77.335 68.3447 72.4725 69.8447 66.9725C66.871 63.6077 55.2635 57.6934 50.8447 53.9725Z" fill="#6986A2" stroke="#12110C" stroke-width="0.4631" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

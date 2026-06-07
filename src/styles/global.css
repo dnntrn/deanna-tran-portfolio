@@ -81,6 +81,9 @@ p:last-child {
 .nav-link[aria-current="page"]::after {
     width: 100%;
 }
+.nav-link[aria-current="page"] {
+    color: var(--accent-color);
+}
 .nav-link:hover {
     background: linear-gradient(90deg, oklch(70% 0.15 340), oklch(75% 0.12 30), oklch(70% 0.08 280), oklch(70% 0.15 340));
     background-size: 200% 100%;

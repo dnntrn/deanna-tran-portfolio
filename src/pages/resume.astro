@@ -59,18 +59,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <article class="max-w-[850px] mx-auto md:my-8 resume-lowercase">
     <div class="bg-white rounded-none shadow-[0_4px_30px_rgba(0,0,0,0.08)] p-8 md:p-10 max-md:mx-4 max-md:p-6 resume-paper">
       
-      <!-- Header: Name + Contact -->
-      <header class="mb-6">
-        <h1 class="text-2xl font-semibold mb-0.5 text-[#1a1a2e]">Deanna Tran</h1>
-        <p class="text-sm"><span class="text-resume-accent">Senior Product Engineer,</span> <span class="text-xs text-[#6a6a7a]">new york, ny</span></p>
-        
-        <address class="flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-[#6a6a7a] not-italic">
-          <a href="mailto:itsdeannatran@gmail.com" class="hover:text-resume-accent transition-colors">itsdeannatran@gmail.com</a>
-          <span>·</span>
-          <a href="https://linkedin.com/in/deannatran" class="hover:text-resume-accent transition-colors" target="_blank" rel="noopener">linkedin.com/in/deannatran</a>
-          <span>·</span>
-          <a href="https://github.com/dnntrn" class="hover:text-resume-accent transition-colors" target="_blank" rel="noopener">github.com/dnntrn</a>
-        </address>
+      <!-- Header: Name + Contact + Download -->
+      <header class="mb-6 flex justify-between items-start">
+        <div>
+          <h1 class="text-2xl font-semibold mb-0.5 text-[#1a1a2e]">Deanna Tran</h1>
+          <p class="text-sm"><span class="text-resume-accent">Senior Product Engineer,</span> <span class="text-xs text-[#6a6a7a]">new york, ny</span></p>
+          
+          <address class="flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-[#6a6a7a] not-italic">
+            <a href="mailto:itsdeannatran@gmail.com" class="hover:text-resume-accent transition-colors">itsdeannatran@gmail.com</a>
+            <span>·</span>
+            <a href="https://linkedin.com/in/deannatran" class="hover:text-resume-accent transition-colors" target="_blank" rel="noopener">linkedin.com/in/deannatran</a>
+            <span>·</span>
+            <a href="https://github.com/dnntrn" class="hover:text-resume-accent transition-colors" target="_blank" rel="noopener">github.com/dnntrn</a>
+          </address>
+        </div>
+        <a href="/deanna tran.pdf" download="deanna tran.pdf" class="print:hidden flex items-center gap-1.5 text-xs font-medium text-resume-accent border border-resume-accent/30 hover:bg-resume-accent/10 hover:border-resume-accent/50 transition-colors px-3 py-1.5 rounded" aria-label="Download resume as PDF">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          download pdf
+        </a>
       </header>
 
       <!-- Experience -->
@@ -107,7 +113,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="text-xs font-medium text-resume-accent mb-1">Software Engineer</p>
             <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
               <li><strong>Operational Impact:</strong> Reduced legal response processing times by 80–90% and completely eliminated engineering overhead for routine requests</li>
-              <li><strong>Framework Design:</strong> Built a metadata-driven UI framework that allows Trust & Safety analysts to self-serve, defining their own templates and workflows without code changes</li>
+              <li><strong>Self-Serve UIs:</strong> Built a metadata-driven UI framework that allows Trust & Safety analysts to self-serve, defining their own templates and workflows without code changes</li>
               <li><strong>Product Ownership:</strong> Served as primary frontend owner for all Legal Response UIs, building internal applications for geoblocks, PRTT processing, and data preservation from scratch</li>
             </ul>
           </div>
@@ -128,8 +134,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>Created internal design system with reusable components, increasing team dev speed</li>
             <li>Fixed and triaged production bugs appropiately during on-call rotations</li> -->
             <li><strong>Greenfield Delivery:</strong> Engineered and shipped critical patient-facing infrastructure, including the cart checkout flow, intake forms, and third-party vendor storefront</li>
-            <li><strong>Design Systems:</strong> Created an internal design system with reusable components, drastically accelerating team development velocity and reducing visual debt</li>
-            <li><strong>Platform Stability:</strong> Triaged and resolved high-priority production bugs during on-call rotations to maintain platform uptime</li>
+            <li><strong>Design System:</strong> Created an internal design system with reusable components, drastically accelerating team development velocity and reducing visual debt</li>
+            <li><strong>On-Call Responsibility:</strong> Triaged and resolved high-priority production bugs during on-call rotations to maintain platform uptime</li>
           </ul>
         </section>
         
@@ -149,7 +155,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <!-- <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase (React and React Native)</li>
               <li>Debugged and fixed production application issues reported through bug reports and client support requests</li>
               <li>Wrote end-to-end tests for our mobile app and website using WebdriverIO</li> -->
-              <li><strong>Growth Engineering:</strong> Developed core full-stack features using React and React Native, driving a 4% increase in conversion and a 20% increase in funding rate</li>
+              <li><strong>Onboarding and Conversion:</strong> Developed core full-stack features using React and React Native, driving a 4% increase in conversion and a 20% increase in funding rate</li>
               <li><strong>Production Support:</strong> Debugged and resolved complex application issues escalated through client support and automated bug reports</li>
               <li><strong>Test Automation:</strong> Authored comprehensive end-to-end mobile and web automation test suites using WebdriverIO to guarantee release stability</li>
             </ul>
