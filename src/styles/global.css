@@ -229,3 +229,32 @@ p:last-child {
         opacity: 1; transform: none; transition: none;
     }
 }
+
+/* ===== Print Styles for Resume ===== */
+@media print {
+    body {
+        background: white !important;
+        color: #1a1a2e !important;
+    }
+    .warmth-gradient,
+    .noise-overlay,
+    .site-header,
+    .site-footer {
+        display: none !important;
+    }
+    main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    .resume-paper {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0.5in !important;
+        max-width: 100% !important;
+    }
+    a {
+        color: #1a1a2e !important;
+        text-decoration: none !important;
+    }
+}
