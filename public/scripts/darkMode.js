@@ -1,8 +1,5 @@
-// Dark Mode Toggle
+// Dark Mode Toggle — theme is set inline in <head> to prevent flash
 const themeToggle = document.querySelector('.theme-toggle');
-
-const currentTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', currentTheme);
 
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {

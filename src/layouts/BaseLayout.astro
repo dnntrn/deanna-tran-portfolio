@@ -41,6 +41,12 @@ const pathname = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body class="font-sans bg-gradient-to-b from-bg-primary via-bg-secondary to-bg-tertiary text-text-primary leading-relaxed text-base min-h-screen relative flex flex-col transition-colors duration-300">
   <div class="warmth-gradient fixed inset-0 pointer-events-none z-0 bg-gradient-to-b from-bg-primary via-bg-secondary to-bg-tertiary transition-colors duration-300"></div>
