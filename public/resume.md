@@ -30,7 +30,7 @@ itsdeannatran@gmail.com · 856-405-7989
 - Created internal design system with reusable components, increasing team dev speed
 
 ### Ellevest
-*Jul 2020 – Jun 2022*
+*Sep 2019 – Jun 2022*
 
 **Software Engineer II** — *Jul 2021 – Jun 2022*
 
@@ -40,11 +40,6 @@ itsdeannatran@gmail.com · 856-405-7989
 **Software Engineer I** — *Jul 2020 – Jul 2021*
 
 - Promoted from intern to full-time; contributed production React Native code to iOS app
-
-### Contractor + Intern
-*Sep 2019 – Jun 2020*
-
-- Early career: React Native, Redux, mobile automation testing
 
 ---
 
