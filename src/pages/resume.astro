@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Resume | Deanna Tran"
+  description="Resume of Deanna Tran, Senior Product Engineer at Cloudflare. Experience in product engineering, design systems, and full-stack development."
+>
+  <section class="resume-content max-w-[720px] mx-auto">
+    
+    <!-- Header: Avatar + Contact -->
+    <div class="flex items-start gap-6 mb-10 max-md:flex-col max-md:items-center">
+      <img src="/kawaii_me.svg" alt="Deanna Tran" class="w-[140px] h-auto shrink-0 max-md:w-[180px]">
+      
+      <div class="flex-1 max-md:text-center">
+        <h1 class="greeting text-4xl font-semibold mb-2 text-text-primary max-md:text-3xl">
+          <span class="name-text">deanna tran</span>
+        </h1>
+        <p class="text-lg text-accent mb-4">senior product engineer</p>
+        
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-text-secondary max-md:justify-center">
+          <span>new york, ny</span>
+          <span>·</span>
+          <a href="mailto:itsdeannatran@gmail.com" class="hover:text-accent transition-colors">itsdeannatran@gmail.com</a>
+          <span>·</span>
+          <span>856-405-7989</span>
+          <span>·</span>
+          <a href="https://linkedin.com/in/deannatran" class="hover:text-accent transition-colors" target="_blank" rel="noopener">linkedin</a>
+          <span>·</span>
+          <a href="https://github.com/dnntrn" class="hover:text-accent transition-colors" target="_blank" rel="noopener">github</a>
+          <span>·</span>
+          <a href="#" class="hover:text-accent transition-colors">download pdf</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="mb-10">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">skills</h2>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">react</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">typescript</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">cloudflare workers</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">tailwindcss</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">product engineering</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">design systems</span>
+        <span class="tag text-[0.8125rem] text-text-secondary bg-tag-bg px-2.5 py-1 rounded cursor-default">cross-functional collaboration</span>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="mb-10">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-text-muted mb-6">experience</h2>
+      
+      <div class="mb-8">
+        <div class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-1">
+          <h3 class="text-lg font-semibold text-text-primary">cloudflare</h3>
+          <span class="text-sm text-text-muted">apr 2026 – present</span>
+        </div>
+        <p class="text-sm text-accent mb-2">senior software engineer</p>
+        <ul class="list-disc list-inside text-text-secondary space-y-1">
+          <li>rebuilding the operational platform behind soc-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
+          <li>shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
+          <li>coaching non-technical stakeholders on leveraging ai for research and operational workflows</li>
+        </ul>
+      </div>
+      
+      <div class="mb-8">
+        <div class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-1">
+          <h3 class="text-lg font-semibold text-text-primary">cloudflare</h3>
+          <span class="text-sm text-text-muted">may 2024 – apr 2026</span>
+        </div>
+        <p class="text-sm text-accent mb-2">software engineer</p>
+        <ul class="list-disc list-inside text-text-secondary space-y-1">
+          <li>reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
+          <li>built a metadata-driven ui framework where t&s analysts self-serve adjust their own workflows</li>
+          <li>primary frontend owner for all legal response uis: geoblock, prtt, preservation tooling</li>
+        </ul>
+      </div>
+      
+      <div class="mb-8">
+        <div class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-1">
+          <h3 class="text-lg font-semibold text-text-primary">season</h3>
+          <span class="text-sm text-text-muted">jul 2022 – nov 2023</span>
+        </div>
+        <p class="text-sm text-accent mb-2">frontend engineer</p>
+        <ul class="list-disc list-inside text-text-secondary space-y-1">
+          <li>delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
+          <li>created internal design system with reusable components, increasing team dev speed</li>
+        </ul>
+      </div>
+      
+      <div class="mb-8">
+        <div class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-1">
+          <h3 class="text-lg font-semibold text-text-primary">ellevest</h3>
+          <span class="text-sm text-text-muted">jul 2021 – jun 2022</span>
+        </div>
+        <p class="text-sm text-accent mb-2">software engineer ii</p>
+        <ul class="list-disc list-inside text-text-secondary space-y-1">
+          <li>developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
+          <li>planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
+        </ul>
+      </div>
+      
+      <div class="mb-8">
+        <div class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-1">
+          <h3 class="text-lg font-semibold text-text-primary">ellevest</h3>
+          <span class="text-sm text-text-muted">jul 2020 – jul 2021</span>
+        </div>
+        <p class="text-sm text-accent mb-2">software engineer i</p>
+        <ul class="list-disc list-inside text-text-secondary space-y-1">
+          <li>promoted from intern to full-time; contributed production react native code to ios app</li>
+        </ul>
+      </div>
+      
+      <div>
+        <div class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-1">
+          <h3 class="text-lg font-semibold text-text-primary">contractor + intern</h3>
+          <span class="text-sm text-text-muted">sep 2019 – jun 2020</span>
+        </div>
+        <ul class="list-disc list-inside text-text-secondary space-y-1">
+          <li>early career: react native, redux, mobile automation testing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="border-t border-border pt-8">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-text-muted mb-3">education</h2>
+      <p class="text-text-secondary">ba computer science, new york university, 2020. minors: web design and linguistics.</p>
+    </div>
+  </section>
+</BaseLayout>
