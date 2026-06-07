@@ -63,7 +63,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Header: Name + Contact -->
       <header class="mb-6">
         <h1 class="text-2xl font-semibold mb-0.5 text-[#1a1a2e]">Deanna Tran</h1>
-        <p class="text-sm mb-2"><span class="text-resume-accent">Senior Product Engineer,</span> <span class="text-xs text-[#6a6a7a]">new york, ny</span></p>
+        <p class="text-sm"><span class="text-resume-accent">Senior Product Engineer,</span> <span class="text-xs text-[#6a6a7a]">new york, ny</span></p>
         
         <address class="flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-[#6a6a7a] not-italic">
           <a href="mailto:itsdeannatran@gmail.com" class="hover:text-resume-accent transition-colors">itsdeannatran@gmail.com</a>
@@ -82,12 +82,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         
         <!-- Cloudflare (grouped) -->
         <section class="mb-4">
-          <header class="flex justify-between items-baseline mb-1">
-            <h3 class="text-sm font-semibold text-[#1a1a2e]">Cloudflare</h3>
-            <span class="text-xs text-[#9a9aaa]">May 2024 – Present</span>
+          <header class="flex justify-between items-start mb-2">
+            <div>
+              <h3 class="text-sm font-semibold text-[#1a1a2e]">Cloudflare</h3>
+              <p class="text-xs text-[#9a9aaa]">security operations, trust and safety</p>
+            </div>
+            <span class="text-xs text-[#9a9aaa] mt-0.5">May 2024 – Present</span>
           </header>
           
-          <div class="mb-3 pb-3">
+          <div class="mb-1 pb-3">
             <p class="text-xs font-medium text-resume-accent mb-1">Senior Software Engineer</p>
             <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
               <!-- <li>Operate as an internal forward-deployed engineer to jump between teams as needed, redefining broken processes before building fullstack systems so it enforces better workflows</li>
@@ -115,9 +118,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         
         <!-- Season -->
         <section class="mb-4">
-          <header class="flex justify-between items-baseline mb-1">
-            <h3 class="text-sm font-semibold text-[#1a1a2e]">Season</h3>
-            <time class="text-xs text-[#9a9aaa]" datetime="2022-07">Jul 2022 – Nov 2023</time>
+          <header class="flex justify-between items-start mb-2">
+            <div>
+              <h3 class="text-sm font-semibold text-[#1a1a2e]">Season</h3>
+              <p class="text-xs text-[#9a9aaa]">healthtech, nutrition, Series A</p>
+            </div>
+            <time class="text-xs text-[#9a9aaa] mt-0.5" datetime="2022-07">Jul 2022 – Nov 2023</time>
           </header>
           <p class="text-xs font-medium text-resume-accent mb-1">Frontend Engineer</p>
           <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
@@ -132,9 +138,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         
         <!-- Ellevest -->
         <section>
-          <header class="flex justify-between items-baseline mb-1">
-            <h3 class="text-sm font-semibold text-[#1a1a2e]">Ellevest</h3>
-            <span class="text-xs text-[#9a9aaa]">Sep 2019 – Jun 2022</span>
+          <header class="flex justify-between items-start mb-2">
+            <div>
+              <h3 class="text-sm font-semibold text-[#1a1a2e]">Ellevest</h3>
+              <p class="text-xs text-[#9a9aaa]">fintech, Series B</p>
+            </div>
+            <span class="text-xs text-[#9a9aaa] mt-0.5">Sep 2019 – Jun 2022</span>
           </header>
           
           <div class="mb-3 pb-3">
@@ -169,10 +178,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <section aria-labelledby="education-heading">
         <h2 id="education-heading" class="text-[0.65rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-2 border-b border-[rgba(0,0,0,0.08)] pb-1">Education</h2>
         <div class="flex justify-between items-baseline mb-0.5">
-          <h3 class="text-sm font-semibold text-[#1a1a2e]">New York University</h3>
+          <p class="text-xs text-[#333344]"><span><strong>New York University</strong>,</span> BA Computer Science</p>
           <span class="text-xs text-[#9a9aaa]">2020</span>
         </div>
-        <p class="text-xs text-[#333344]">BA Computer Science</p>
+        
       </section>
     </div>
   </article>
