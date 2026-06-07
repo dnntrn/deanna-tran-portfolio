@@ -1,7 +1,7 @@
 # Deanna Tran
 
 **Senior Product Engineer** | New York, NY  
-itsdeannatran@gmail.com · 856-405-7989  
+itsdeannatran@gmail.com  
 [linkedin.com/in/deannatran](https://linkedin.com/in/deannatran) · [github.com/dnntrn](https://github.com/dnntrn)
 
 ---
