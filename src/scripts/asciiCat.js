@@ -1,5 +1,5 @@
-// ASCII Cat - Sparkle Button Delight
-const sparkleBtn = document.querySelector('.sparkle-btn');
+// ASCII Cat Easter Egg (currently inactive — trigger removed with sparkle button)
+// To re-enable, add a new trigger element and wire it to showNormalCat()
 const asciiCat = document.getElementById('ascii-cat');
 const catFace = document.querySelector('.cat-face');
 const catSpeech = document.querySelector('.cat-speech');
@@ -65,10 +65,6 @@ function addCrown() {
     if (!isCatVisible) return;
     catCrown.classList.add('visible');
     setTimeout(() => {
-        const crownRect = catCrown.getBoundingClientRect();
-        createSparkleBurst(crownRect.left + crownRect.width / 2, crownRect.top + crownRect.height / 2);
-    }, 50);
-    setTimeout(() => {
         catSpeech.classList.remove('visible');
         setTimeout(() => {
             catSpeech.textContent = '👑 Code like a queen!';
@@ -90,28 +86,8 @@ function hideCat() {
     }, 300);
 }
 
-if (sparkleBtn && asciiCat) {
-    sparkleBtn.addEventListener('click', (e) => {
-        clickCount++;
-        const rect = sparkleBtn.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        if (clickCount === 1) {
-            createSparkleBurst(centerX, centerY);
-            showNormalCat();
-        } else if (clickCount === 2) {
-            createSparkleBurst(centerX, centerY);
-            addCrown();
-        } else {
-            hideCat();
-            clickCount = 0;
-        }
-    });
-}
-
 document.addEventListener('click', (e) => {
-    if (isCatVisible && !asciiCat.contains(e.target) && !sparkleBtn.contains(e.target)) {
+    if (isCatVisible && !asciiCat.contains(e.target)) {
         hideCat();
         clickCount = 0;
     }

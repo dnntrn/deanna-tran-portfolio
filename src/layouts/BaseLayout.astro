@@ -106,33 +106,15 @@ const {
     </div>
   </header>
 
-  <div id="ascii-cat" class="ascii-cat hidden">
-    <div class="cat-container-inner relative inline-block mr-[120px]">
-      <pre class="cat-face font-mono text-sm leading-tight text-text-primary cursor-pointer select-none">{` /\\_/\\
-( o.o )
- > ^ <`}</pre>
-      <div class="cat-crown absolute -top-[18px] left-1/2 -translate-x-1/2 scale-0 text-2xl leading-none opacity-0 drop-shadow-[0_2px_4px_rgba(255,215,0,0.3)] z-[2] pointer-events-none">👑</div>
-    </div>
-    <div class="cat-speech font-sans text-xs text-text-secondary bg-speech-bg px-4 py-2 rounded-[20px] shadow-[0_2px_10px_rgba(0,0,0,0.1)] opacity-0 absolute right-full top-1/2 -translate-y-1/2 translate-x-[10px] mr-2.5 whitespace-nowrap z-10">purr</div>
-  </div>
-
   <main class="mx-auto p-8 relative z-10 flex-1 w-full max-md:p-6" role="main">
     <slot />
   </main>
 
-  <footer class="site-footer mx-auto px-8 pt-12 pb-8 flex justify-between items-center border-t border-border relative z-10 max-md:flex-col max-md:gap-4 max-md:text-center max-md:px-6 max-md:pt-8 max-md:pb-6">
-    <button class="social-link sparkle-btn inline-flex items-center justify-center w-9 h-9 rounded-full bg-transparent border-none cursor-pointer text-text-secondary transition-all duration-300 hover:text-accent hover:scale-[1.15] hover:-translate-y-0.5 hover:bg-tag-bg" aria-label="Secret" title="Sparkle">
-      <svg viewBox="0 0 36 24" width="28" height="20" style="display: block; overflow: visible;">
-        <path d="M14 4 Q 14 10 20 10 Q 14 10 14 16 Q 14 10 8 10 Q 14 10 14 4 Z" fill="#ec4899" filter="url(#starGlow)"/>
-        <path d="M26 2 Q 26 6 30 6 Q 26 6 26 10 Q 26 6 22 6 Q 26 6 26 2 Z" fill="#a855f7" filter="url(#starGlow)"/>
-      </svg>
-    </button>
+  <footer class="site-footer mx-auto px-8 pt-12 pb-8 flex justify-center items-center border-t border-border relative z-10 max-md:px-6 max-md:pt-8 max-md:pb-6">
     <p class="text-sm text-text-secondary">© 2026 deanna</p>
   </footer>
 
   <script is:inline src="/scripts/darkMode.js"></script>
-  <script is:inline src="/scripts/asciiCat.js"></script>
-  <script is:inline src="/scripts/sparkleBurst.js"></script>
 
   <script type="application/ld+json" is:inline>
   {
