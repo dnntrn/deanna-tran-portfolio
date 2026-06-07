@@ -63,11 +63,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Header: Name + Contact -->
       <header class="mb-6">
         <h1 class="text-2xl font-semibold mb-0.5 text-[#1a1a2e]">Deanna Tran</h1>
-        <p class="text-sm text-resume-accent mb-2">Senior Product Engineer</p>
+        <p class="text-sm mb-2"><span class="text-resume-accent">Senior Product Engineer,</span> <span class="text-xs text-[#6a6a7a]">new york, ny</span></p>
         
         <address class="flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-[#6a6a7a] not-italic">
-          <span>New York, NY</span>
-          <span>·</span>
           <a href="mailto:itsdeannatran@gmail.com" class="hover:text-resume-accent transition-colors">itsdeannatran@gmail.com</a>
           <span>·</span>
           <span>856-405-7989</span>
@@ -89,21 +87,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="text-xs text-[#9a9aaa]">May 2024 – Present</span>
           </header>
           
-          <div class="mb-2">
-            <p class="text-xs font-medium text-resume-accent">Senior Software Engineer <span class="text-[#9a9aaa] font-normal">— Apr 2026 – Present</span></p>
+          <div class="mb-3 pb-3">
+            <p class="text-xs font-medium text-resume-accent mb-1">Senior Software Engineer</p>
             <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
-              <li>Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
-              <li>Shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
-              <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li>
+              <!-- <li>Operate as an internal forward-deployed engineer to jump between teams as needed, redefining broken processes before building fullstack systems so it enforces better workflows</li>
+              <li>Rebuild the operational platform behind Cloudflare's SOC-as-a-service leading to significantly less manual management and a better foundation for automation</li>
+              <li>Define and own product roadmaps and delivery dates</li>
+              <li>Mentor junior engineers and interns leading to an increase in overall team speed</li>
+              <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li> -->
+              <li><strong>Forward-Deployed:</strong> Embedded across security and trust teams to diagnose broken operational processes and build full-stack solutions</li>
+              <li><strong>0-to-1 Build:</strong> Architect and ship the operational platform behind Cloudflare’s SOC-as-a-service, replacing manual tasks</li>
+              <li><strong>Product Ownership:</strong> Define product roadmaps, scope requirements, and own cross-functional delivery dates</li>
+              <li><strong>Mentorship:</strong> Mentor junior engineers and interns to ramp up code quality and increase overall team shipping speed</li>
+              <li><strong>AI Workflows:</strong> Train non-technical enterprise stakeholders on leveraging AI tools to accelerate research and documentation</li>
             </ul>
           </div>
           
           <div>
-            <p class="text-xs font-medium text-resume-accent">Software Engineer <span class="text-[#9a9aaa] font-normal">— May 2024 – Apr 2026</span></p>
+            <p class="text-xs font-medium text-resume-accent mb-1">Software Engineer</p>
             <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
-              <li>Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
-              <li>Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows</li>
-              <li>Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling</li>
+              <li><strong>Operational Impact:</strong> Reduced legal response processing times by 80–90% and completely eliminated engineering overhead for routine requests</li>
+              <li><strong>Framework Design:</strong> Built a metadata-driven UI framework that allows Trust & Safety analysts to self-serve, defining their own templates and workflows without code changes</li>
+              <li><strong>Product Ownership:</strong> Served as primary frontend owner for all Legal Response UIs, building internal applications for geoblocks, PRTT processing, and data preservation from scratch</li>
             </ul>
           </div>
         </section>
@@ -114,32 +119,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <h3 class="text-sm font-semibold text-[#1a1a2e]">Season</h3>
             <time class="text-xs text-[#9a9aaa]" datetime="2022-07">Jul 2022 – Nov 2023</time>
           </header>
-          <p class="text-xs font-medium text-resume-accent mb-0.5">Frontend Engineer</p>
+          <p class="text-xs font-medium text-resume-accent mb-1">Frontend Engineer</p>
           <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
-            <li>Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
+            <!-- <li>Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
             <li>Created internal design system with reusable components, increasing team dev speed</li>
+            <li>Fixed and triaged production bugs appropiately during on-call rotations</li> -->
+            <li><strong>Greenfield Delivery:</strong> Engineered and shipped critical patient-facing infrastructure, including the cart checkout flow, intake forms, and third-party vendor storefront</li>
+            <li><strong>Design Systems:</strong> Created an internal design system with reusable components, drastically accelerating team development velocity and reducing visual debt</li>
+            <li><strong>Platform Stability:</strong> Triaged and resolved high-priority production bugs during on-call rotations to maintain platform uptime</li>
           </ul>
         </section>
         
-        <!-- Ellevest (grouped) -->
+        <!-- Ellevest -->
         <section>
           <header class="flex justify-between items-baseline mb-1">
             <h3 class="text-sm font-semibold text-[#1a1a2e]">Ellevest</h3>
             <span class="text-xs text-[#9a9aaa]">Sep 2019 – Jun 2022</span>
           </header>
           
-          <div class="mb-2">
-            <p class="text-xs font-medium text-resume-accent">Software Engineer II <span class="text-[#9a9aaa] font-normal">— Jul 2021 – Jun 2022</span></p>
+          <div class="mb-3 pb-3">
+            <p class="text-xs font-medium text-resume-accent mb-1">Software Engineer II</p>
             <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
-              <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
-              <li>Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
-            </ul>
-          </div>
-          
-          <div>
-            <p class="text-xs font-medium text-resume-accent">Software Engineer I <span class="text-[#9a9aaa] font-normal">— Jul 2020 – Jul 2021</span></p>
-            <ul class="list-disc list-outside ml-4 text-[#333344] text-xs space-y-0.5">
-              <li>Promoted from intern to full-time; contributed production React Native code to iOS app</li>
+              <!-- <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase (React and React Native)</li>
+              <li>Debugged and fixed production application issues reported through bug reports and client support requests</li>
+              <li>Wrote end-to-end tests for our mobile app and website using WebdriverIO</li> -->
+              <li><strong>Growth Engineering:</strong> Developed core full-stack features using React and React Native, driving a 4% increase in conversion and a 20% increase in funding rate</li>
+              <li><strong>Production Support:</strong> Debugged and resolved complex application issues escalated through client support and automated bug reports</li>
+              <li><strong>Test Automation:</strong> Authored comprehensive end-to-end mobile and web automation test suites using WebdriverIO to guarantee release stability</li>
             </ul>
           </div>
         </section>
@@ -154,7 +160,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Education -->
       <section aria-labelledby="education-heading">
         <h2 id="education-heading" class="text-[0.65rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-2 border-b border-[rgba(0,0,0,0.08)] pb-1">Education</h2>
-        <p class="text-xs text-[#333344]">BA Computer Science, New York University, 2020. Minors: Web Design and Linguistics.</p>
+        <div class="flex justify-between items-baseline mb-0.5">
+          <h3 class="text-sm font-semibold text-[#1a1a2e]">New York University</h3>
+          <span class="text-xs text-[#9a9aaa]">2020</span>
+        </div>
+        <p class="text-xs text-[#333344]">BA Computer Science</p>
+        <p class="text-xs text-[#6a6a7a]">Minors: Web Design and Linguistics</p>
       </section>
     </div>
   </article>
