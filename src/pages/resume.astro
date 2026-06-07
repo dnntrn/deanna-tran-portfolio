@@ -82,32 +82,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <section class="mb-6" aria-labelledby="experience-heading">
         <h2 id="experience-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-3">Experience</h2>
         
+        <!-- Cloudflare (grouped) -->
         <section class="mb-4">
-          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+          <header class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-0">
             <h3 class="text-base font-semibold text-[#1a1a2e]">Cloudflare</h3>
-            <time class="text-xs text-[#9a9aaa]" datetime="2026-04">Apr 2026 – Present</time>
+            <span class="text-xs text-[#9a9aaa]">May 2024 – Present</span>
           </header>
-          <p class="text-xs text-[#a855f7] mb-1">Senior Software Engineer</p>
-          <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
-            <li>Shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
-            <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li>
-          </ul>
+          
+          <div class="mb-3">
+            <p class="text-xs text-[#a855f7] mb-0.5">Senior Software Engineer <span class="text-[#9a9aaa]">— Apr 2026 – Present</span></p>
+            <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
+              <li>Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
+              <li>Shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
+              <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li>
+            </ul>
+          </div>
+          
+          <div>
+            <p class="text-xs text-[#a855f7] mb-0.5">Software Engineer <span class="text-[#9a9aaa]">— May 2024 – Apr 2026</span></p>
+            <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
+              <li>Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
+              <li>Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows</li>
+              <li>Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling</li>
+            </ul>
+          </div>
         </section>
         
-        <section class="mb-4">
-          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">Cloudflare</h3>
-            <time class="text-xs text-[#9a9aaa]" datetime="2024-05">May 2024 – Apr 2026</time>
-          </header>
-          <p class="text-xs text-[#a855f7] mb-1">Software Engineer</p>
-          <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
-            <li>Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows</li>
-            <li>Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling</li>
-          </ul>
-        </section>
-        
+        <!-- Season -->
         <section class="mb-4">
           <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
             <h3 class="text-base font-semibold text-[#1a1a2e]">Season</h3>
@@ -120,29 +121,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </section>
         
+        <!-- Ellevest (grouped) -->
         <section class="mb-4">
-          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+          <header class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-0">
             <h3 class="text-base font-semibold text-[#1a1a2e]">Ellevest</h3>
-            <time class="text-xs text-[#9a9aaa]" datetime="2021-07">Jul 2021 – Jun 2022</time>
+            <span class="text-xs text-[#9a9aaa]">Jul 2020 – Jun 2022</span>
           </header>
-          <p class="text-xs text-[#a855f7] mb-1">Software Engineer II</p>
-          <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
-            <li>Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
-          </ul>
+          
+          <div class="mb-3">
+            <p class="text-xs text-[#a855f7] mb-0.5">Software Engineer II <span class="text-[#9a9aaa]">— Jul 2021 – Jun 2022</span></p>
+            <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
+              <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
+              <li>Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
+            </ul>
+          </div>
+          
+          <div>
+            <p class="text-xs text-[#a855f7] mb-0.5">Software Engineer I <span class="text-[#9a9aaa]">— Jul 2020 – Jul 2021</span></p>
+            <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
+              <li>Promoted from intern to full-time; contributed production React Native code to iOS app</li>
+            </ul>
+          </div>
         </section>
         
-        <section class="mb-4">
-          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">Ellevest</h3>
-            <time class="text-xs text-[#9a9aaa]" datetime="2020-07">Jul 2020 – Jul 2021</time>
-          </header>
-          <p class="text-xs text-[#a855f7] mb-1">Software Engineer I</p>
-          <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>Promoted from intern to full-time; contributed production React Native code to iOS app</li>
-          </ul>
-        </section>
-        
+        <!-- Contractor + Intern -->
         <section>
           <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
             <h3 class="text-base font-semibold text-[#1a1a2e]">Contractor + Intern</h3>

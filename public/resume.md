@@ -8,15 +8,16 @@ itsdeannatran@gmail.com · 856-405-7989
 
 ## Experience
 
-### Cloudflare — Senior Software Engineer
-*Apr 2026 – Present*
+### Cloudflare
+*May 2024 – Present*
+
+**Senior Software Engineer** — *Apr 2026 – Present*
 
 - Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows
 - Shifting engineering culture from "build what's requested" to "understand the user problem first"
 - Coaching non-technical stakeholders on leveraging AI for research and operational workflows
 
-### Cloudflare — Software Engineer
-*May 2024 – Apr 2026*
+**Software Engineer** — *May 2024 – Apr 2026*
 
 - Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests
 - Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows
@@ -28,14 +29,15 @@ itsdeannatran@gmail.com · 856-405-7989
 - Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront
 - Created internal design system with reusable components, increasing team dev speed
 
-### Ellevest — Software Engineer II
-*Jul 2021 – Jun 2022*
+### Ellevest
+*Jul 2020 – Jun 2022*
+
+**Software Engineer II** — *Jul 2021 – Jun 2022*
 
 - Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase
 - Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration
 
-### Ellevest — Software Engineer I
-*Jul 2020 – Jul 2021*
+**Software Engineer I** — *Jul 2020 – Jul 2021*
 
 - Promoted from intern to full-time; contributed production React Native code to iOS app
 
