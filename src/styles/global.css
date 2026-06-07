@@ -62,7 +62,7 @@ p:last-child {
 
 /* ===== Complex Interactions (keep in CSS) ===== */
 
-/* Nav link underline animation */
+/* Nav link — gradient text on hover, underline for active page only */
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
@@ -77,11 +77,16 @@ p:last-child {
     background: linear-gradient(90deg, #e8a5c0, #d4a5e8);
     transition: width 0.3s ease;
 }
-.nav-link:hover::after {
-    width: 100%;
-}
 .nav-link[aria-current="page"]::after {
     width: 100%;
+}
+.nav-link:hover {
+    background: linear-gradient(90deg, oklch(70% 0.15 340), oklch(75% 0.12 30), oklch(70% 0.08 280), oklch(70% 0.15 340));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s ease-in-out infinite;
 }
 
 /* Project title arrow + underline */
