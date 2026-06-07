@@ -8,7 +8,7 @@ itsdeannatran@gmail.com · 856-405-7989
 
 ## Experience
 
-### Cloudflare
+### [Cloudflare](https://cloudflare.com) — security operations, trust and safety
 *May 2024 – Present*
 
 **Senior Software Engineer** — *Apr 2026 – Present*
@@ -23,13 +23,13 @@ itsdeannatran@gmail.com · 856-405-7989
 - Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows
 - Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling
 
-### Season — Frontend Engineer
+### [Season](https://seasonhealth.com) — healthtech, nutrition, Series A
 *Jul 2022 – Nov 2023*
 
 - Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront
 - Created internal design system with reusable components, increasing team dev speed
 
-### Ellevest
+### [Ellevest](https://ellevest.com) — fintech, Series B
 *Sep 2019 – Jun 2022*
 
 **Software Engineer II** — *Jul 2021 – Jun 2022*
