@@ -61,11 +61,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="bg-white rounded-none shadow-[0_4px_30px_rgba(0,0,0,0.08)] p-8 md:p-12 max-md:mx-4 max-md:p-6 resume-paper">
       
       <!-- Header: Name + Contact -->
-      <header class="mb-10">
+      <header class="mb-12">
         <h1 class="text-3xl font-semibold mb-1 text-[#1a1a2e] max-md:text-2xl">Deanna Tran</h1>
-        <p class="text-base text-[#a855f7] mb-3">Senior Product Engineer</p>
+        <p class="text-base text-[#a855f7] mb-4">Senior Product Engineer</p>
         
-        <address class="flex flex-wrap gap-x-3 gap-y-0.5 text-sm text-[#6a6a7a] not-italic max-md:justify-center">
+        <address class="flex flex-wrap gap-x-3 gap-y-1 text-sm text-[#6a6a7a] not-italic max-md:justify-center">
           <span>New York, NY</span>
           <span>·</span>
           <a href="mailto:itsdeannatran@gmail.com" class="hover:text-[#a855f7] transition-colors">itsdeannatran@gmail.com</a>
@@ -78,105 +78,84 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </address>
       </header>
 
-      <!-- 2-Column Layout -->
-      <!-- DOM order: Experience first (screen readers/ATS), then Skills, then Education -->
-      <!-- Visual layout (desktop): Skills/Education left sidebar, Experience right main -->
-      <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
+      <!-- Experience -->
+      <section class="mb-12" aria-labelledby="experience-heading">
+        <h2 id="experience-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-8">Experience</h2>
         
-        <!-- Main: Experience -->
-        <div class="md:col-start-2 md:row-start-1 md:row-end-3">
-          <section aria-labelledby="experience-heading">
-            <h2 id="experience-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-6">Experience</h2>
-            
-            <!-- Cloudflare (grouped) -->
-            <section class="mb-8">
-              <header class="flex justify-between items-baseline mb-3 max-md:flex-col max-md:gap-0">
-                <h3 class="text-base font-semibold text-[#1a1a2e]">Cloudflare</h3>
-                <span class="text-xs text-[#9a9aaa]">May 2024 – Present</span>
-              </header>
-              
-              <div class="mb-4">
-                <p class="text-xs text-[#a855f7] mb-1">Senior Software Engineer <span class="text-[#9a9aaa]">— Apr 2026 – Present</span></p>
-                <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-1">
-                  <li>Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
-                  <li>Shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
-                  <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li>
-                </ul>
-              </div>
-              
-              <div class="pt-3 border-t border-[rgba(0,0,0,0.06)]">
-                <p class="text-xs text-[#a855f7] mb-1">Software Engineer <span class="text-[#9a9aaa]">— May 2024 – Apr 2026</span></p>
-                <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-1">
-                  <li>Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
-                  <li>Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows</li>
-                  <li>Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling</li>
-                </ul>
-              </div>
-            </section>
-            
-            <!-- Season -->
-            <section class="mb-8">
-              <header class="flex justify-between items-baseline mb-2 max-md:flex-col max-md:gap-0">
-                <h3 class="text-base font-semibold text-[#1a1a2e]">Season</h3>
-                <time class="text-xs text-[#9a9aaa]" datetime="2022-07">Jul 2022 – Nov 2023</time>
-              </header>
-              <p class="text-xs text-[#a855f7] mb-2">Frontend Engineer</p>
-              <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-1">
-                <li>Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
-                <li>Created internal design system with reusable components, increasing team dev speed</li>
-              </ul>
-            </section>
-            
-            <!-- Ellevest (grouped) -->
-            <section class="mb-8">
-              <header class="flex justify-between items-baseline mb-3 max-md:flex-col max-md:gap-0">
-                <h3 class="text-base font-semibold text-[#1a1a2e]">Ellevest</h3>
-                <span class="text-xs text-[#9a9aaa]">Sep 2019 – Jun 2022</span>
-              </header>
-              
-              <div class="mb-4">
-                <p class="text-xs text-[#a855f7] mb-1">Software Engineer II <span class="text-[#9a9aaa]">— Jul 2021 – Jun 2022</span></p>
-                <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-1">
-                  <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
-                  <li>Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
-                </ul>
-              </div>
-              
-              <div class="pt-3 border-t border-[rgba(0,0,0,0.06)]">
-                <p class="text-xs text-[#a855f7] mb-1">Software Engineer I <span class="text-[#9a9aaa]">— Jul 2020 – Jul 2021</span></p>
-                <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-1">
-                  <li>Promoted from intern to full-time; contributed production React Native code to iOS app</li>
-                </ul>
-              </div>
-            </section>
-          </section>
-        </div>
-        
-        <!-- Sidebar: Skills -->
-        <div class="md:col-start-1 md:row-start-1">
-          <section class="mb-8" aria-labelledby="skills-heading">
-            <h2 id="skills-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-4">Skills</h2>
-            <ul class="text-sm text-[#6a6a7a] space-y-2">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Cloudflare Workers</li>
-              <li>TailwindCSS</li>
-              <li>Product Engineering</li>
-              <li>Design Systems</li>
-              <li>Cross-Functional Collaboration</li>
+        <!-- Cloudflare (grouped) -->
+        <section class="mb-10 pb-10 border-b border-[rgba(0,0,0,0.06)]">
+          <header class="flex justify-between items-baseline mb-4 max-md:flex-col max-md:gap-1">
+            <h3 class="text-lg font-semibold text-[#1a1a2e]">Cloudflare</h3>
+            <span class="text-sm text-[#9a9aaa]">May 2024 – Present</span>
+          </header>
+          
+          <div class="mb-6">
+            <p class="text-sm font-medium text-[#a855f7] mb-2">Senior Software Engineer <span class="text-[#9a9aaa] font-normal">— Apr 2026 – Present</span></p>
+            <ul class="list-disc list-outside ml-4 text-[#4a4a5a] text-sm space-y-2 leading-relaxed">
+              <li>Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
+              <li>Shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
+              <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li>
             </ul>
-          </section>
-        </div>
+          </div>
+          
+          <div>
+            <p class="text-sm font-medium text-[#a855f7] mb-2">Software Engineer <span class="text-[#9a9aaa] font-normal">— May 2024 – Apr 2026</span></p>
+            <ul class="list-disc list-outside ml-4 text-[#4a4a5a] text-sm space-y-2 leading-relaxed">
+              <li>Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
+              <li>Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows</li>
+              <li>Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling</li>
+            </ul>
+          </div>
+        </section>
         
-        <!-- Sidebar: Education -->
-        <div class="md:col-start-1 md:row-start-2 self-start">
-          <section aria-labelledby="education-heading">
-            <h2 id="education-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-4">Education</h2>
-            <p class="text-sm text-[#6a6a7a] leading-relaxed">BA Computer Science, New York University, 2020. Minors: Web Design and Linguistics.</p>
-          </section>
-        </div>
+        <!-- Season -->
+        <section class="mb-10 pb-10 border-b border-[rgba(0,0,0,0.06)]">
+          <header class="flex justify-between items-baseline mb-3 max-md:flex-col max-md:gap-1">
+            <h3 class="text-lg font-semibold text-[#1a1a2e]">Season</h3>
+            <time class="text-sm text-[#9a9aaa]" datetime="2022-07">Jul 2022 – Nov 2023</time>
+          </header>
+          <p class="text-sm font-medium text-[#a855f7] mb-2">Frontend Engineer</p>
+          <ul class="list-disc list-outside ml-4 text-[#4a4a5a] text-sm space-y-2 leading-relaxed">
+            <li>Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
+            <li>Created internal design system with reusable components, increasing team dev speed</li>
+          </ul>
+        </section>
         
-      </div>
+        <!-- Ellevest (grouped) -->
+        <section>
+          <header class="flex justify-between items-baseline mb-4 max-md:flex-col max-md:gap-1">
+            <h3 class="text-lg font-semibold text-[#1a1a2e]">Ellevest</h3>
+            <span class="text-sm text-[#9a9aaa]">Sep 2019 – Jun 2022</span>
+          </header>
+          
+          <div class="mb-6">
+            <p class="text-sm font-medium text-[#a855f7] mb-2">Software Engineer II <span class="text-[#9a9aaa] font-normal">— Jul 2021 – Jun 2022</span></p>
+            <ul class="list-disc list-outside ml-4 text-[#4a4a5a] text-sm space-y-2 leading-relaxed">
+              <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
+              <li>Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
+            </ul>
+          </div>
+          
+          <div>
+            <p class="text-sm font-medium text-[#a855f7] mb-2">Software Engineer I <span class="text-[#9a9aaa] font-normal">— Jul 2020 – Jul 2021</span></p>
+            <ul class="list-disc list-outside ml-4 text-[#4a4a5a] text-sm space-y-2 leading-relaxed">
+              <li>Promoted from intern to full-time; contributed production React Native code to iOS app</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- Skills -->
+      <section class="mb-10 pb-10 border-b border-[rgba(0,0,0,0.06)]" aria-labelledby="skills-heading">
+        <h2 id="skills-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-4">Skills</h2>
+        <p class="text-sm text-[#4a4a5a] leading-relaxed">React, TypeScript, Cloudflare Workers, TailwindCSS, Product Engineering, Design Systems, Cross-Functional Collaboration</p>
+      </section>
+
+      <!-- Education -->
+      <section aria-labelledby="education-heading">
+        <h2 id="education-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-4">Education</h2>
+        <p class="text-sm text-[#4a4a5a] leading-relaxed">BA Computer Science, New York University, 2020. Minors: Web Design and Linguistics.</p>
+      </section>
     </div>
   </article>
 </BaseLayout>
