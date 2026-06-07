@@ -252,6 +252,10 @@ p:last-child {
         margin: 0 !important;
         max-width: 100% !important;
     }
+    article {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
     .resume-paper {
         box-shadow: none !important;
         margin: 0 !important;
