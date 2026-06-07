@@ -16,6 +16,7 @@
   --color-tag-bg: var(--tag-bg);
   --color-tag-bg-hover: var(--tag-bg-hover);
   --color-speech-bg: var(--speech-bg);
+  --color-resume-accent: #7c3ead;
 }
 
 /* ===== CSS Variables for Dark Mode ===== */
