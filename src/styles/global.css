@@ -230,6 +230,11 @@ p:last-child {
     }
 }
 
+/* ===== Resume Lowercase Branding ===== */
+.resume-lowercase {
+    text-transform: lowercase;
+}
+
 /* ===== Print Styles for Resume ===== */
 @media print {
     body {
@@ -252,6 +257,9 @@ p:last-child {
         margin: 0 !important;
         padding: 0.5in !important;
         max-width: 100% !important;
+    }
+    .resume-lowercase {
+        text-transform: none !important;
     }
     a {
         color: #1a1a2e !important;

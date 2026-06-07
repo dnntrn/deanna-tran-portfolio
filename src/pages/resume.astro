@@ -6,124 +6,165 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Resume | Deanna Tran"
   description="Resume of Deanna Tran, Senior Product Engineer at Cloudflare. Experience in product engineering, design systems, and full-stack development."
 >
-  <div class="max-w-[800px] mx-auto md:my-8">
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Deanna Tran",
+      "jobTitle": "Senior Product Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Cloudflare",
+        "url": "https://cloudflare.com"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "email": "itsdeannatran@gmail.com",
+      "telephone": "856-405-7989",
+      "url": "https://deannatran.com",
+      "sameAs": [
+        "https://github.com/dnntrn",
+        "https://www.linkedin.com/in/deannatran/"
+      ],
+      "knowsAbout": [
+        "React",
+        "TypeScript",
+        "Cloudflare Workers",
+        "TailwindCSS",
+        "Product Engineering",
+        "Design Systems",
+        "Cross-Functional Collaboration"
+      ],
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "New York University"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Senior Product Engineer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "New York, NY"
+        }
+      }
+    }
+  }
+  </script>
+
+  <article class="max-w-[800px] mx-auto md:my-8 resume-lowercase">
     <div class="bg-white rounded-none shadow-[0_4px_30px_rgba(0,0,0,0.08)] p-8 md:p-12 max-md:mx-4 max-md:p-6 resume-paper">
       
-      <!-- Header: Avatar + Contact -->
-      <div class="flex items-start gap-5 mb-6 max-md:flex-col max-md:items-center max-md:gap-4">        
-        <div class="flex-1 max-md:text-center">
-          <h1 class="text-3xl font-semibold mb-1 text-[#1a1a2e] max-md:text-2xl">deanna tran</h1>
-          <p class="text-base text-[#a855f7] mb-3">senior product engineer</p>
-          
-          <div class="flex flex-wrap gap-x-3 gap-y-0.5 text-sm text-[#6a6a7a] max-md:justify-center">
-            <span>new york, ny</span>
-            <span>·</span>
-            <a href="mailto:itsdeannatran@gmail.com" class="hover:text-[#a855f7] transition-colors">itsdeannatran@gmail.com</a>
-            <span>·</span>
-            <span>856-405-7989</span>
-            <span>·</span>
-            <a href="https://linkedin.com/in/deannatran" class="hover:text-[#a855f7] transition-colors" target="_blank" rel="noopener">linkedin</a>
-            <span>·</span>
-            <a href="https://github.com/dnntrn" class="hover:text-[#a855f7] transition-colors" target="_blank" rel="noopener">github</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skills -->
-      <div class="mb-6">
-        <h2 class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-2">skills</h2>
-        <div class="flex flex-wrap gap-1.5">
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">react</span>
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">typescript</span>
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">cloudflare workers</span>
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">tailwindcss</span>
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">product engineering</span>
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">design systems</span>
-          <span class="text-[0.78rem] text-[#6a6a7a] bg-[rgba(168,85,247,0.08)] px-2 py-0.5 rounded">cross-functional collaboration</span>
-        </div>
-      </div>
+      <!-- Header: Name + Contact -->
+      <header class="mb-6">
+        <h1 class="text-3xl font-semibold mb-1 text-[#1a1a2e] max-md:text-2xl">Deanna Tran</h1>
+        <p class="text-base text-[#a855f7] mb-3">Senior Product Engineer</p>
+        
+        <address class="flex flex-wrap gap-x-3 gap-y-0.5 text-sm text-[#6a6a7a] not-italic max-md:justify-center">
+          <span>New York, NY</span>
+          <span>·</span>
+          <a href="mailto:itsdeannatran@gmail.com" class="hover:text-[#a855f7] transition-colors">itsdeannatran@gmail.com</a>
+          <span>·</span>
+          <span>856-405-7989</span>
+          <span>·</span>
+          <a href="https://linkedin.com/in/deannatran" class="hover:text-[#a855f7] transition-colors" target="_blank" rel="noopener">linkedin.com/in/deannatran</a>
+          <span>·</span>
+          <a href="https://github.com/dnntrn" class="hover:text-[#a855f7] transition-colors" target="_blank" rel="noopener">github.com/dnntrn</a>
+        </address>
+      </header>
 
       <!-- Experience -->
-      <div class="mb-6">
-        <h2 class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-3">experience</h2>
+      <section class="mb-6" aria-labelledby="experience-heading">
+        <h2 id="experience-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-3">Experience</h2>
         
-        <div class="mb-4">
-          <div class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">cloudflare</h3>
-            <span class="text-xs text-[#9a9aaa]">apr 2026 – present</span>
-          </div>
-          <p class="text-xs text-[#a855f7] mb-1">senior software engineer</p>
+        <section class="mb-4">
+          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+            <h3 class="text-base font-semibold text-[#1a1a2e]">Cloudflare</h3>
+            <time class="text-xs text-[#9a9aaa]" datetime="2026-04">Apr 2026 – Present</time>
+          </header>
+          <p class="text-xs text-[#a855f7] mb-1">Senior Software Engineer</p>
           <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>rebuilding the operational platform behind soc-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
-            <li>shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
-            <li>coaching non-technical stakeholders on leveraging ai for research and operational workflows</li>
+            <li>Rebuilding the operational platform behind SOC-as-a-service: redefining broken processes before building the system so it enforces better workflows</li>
+            <li>Shifting engineering culture from "build what's requested" to "understand the user problem first"</li>
+            <li>Coaching non-technical stakeholders on leveraging AI for research and operational workflows</li>
           </ul>
-        </div>
+        </section>
         
-        <div class="mb-4">
-          <div class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">cloudflare</h3>
-            <span class="text-xs text-[#9a9aaa]">may 2024 – apr 2026</span>
-          </div>
-          <p class="text-xs text-[#a855f7] mb-1">software engineer</p>
+        <section class="mb-4">
+          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+            <h3 class="text-base font-semibold text-[#1a1a2e]">Cloudflare</h3>
+            <time class="text-xs text-[#9a9aaa]" datetime="2024-05">May 2024 – Apr 2026</time>
+          </header>
+          <p class="text-xs text-[#a855f7] mb-1">Software Engineer</p>
           <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
-            <li>built a metadata-driven ui framework where t&s analysts self-serve adjust their own workflows</li>
-            <li>primary frontend owner for all legal response uis: geoblock, prtt, preservation tooling</li>
+            <li>Reduced legal response processing time by 80-90% and eliminated engineering involvement in routine requests</li>
+            <li>Built a metadata-driven UI framework where T&S analysts self-serve adjust their own workflows</li>
+            <li>Primary frontend owner for all Legal Response UIs: geoblock, PRTT, preservation tooling</li>
           </ul>
-        </div>
+        </section>
         
-        <div class="mb-4">
-          <div class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">season</h3>
-            <span class="text-xs text-[#9a9aaa]">jul 2022 – nov 2023</span>
-          </div>
-          <p class="text-xs text-[#a855f7] mb-1">frontend engineer</p>
+        <section class="mb-4">
+          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+            <h3 class="text-base font-semibold text-[#1a1a2e]">Season</h3>
+            <time class="text-xs text-[#9a9aaa]" datetime="2022-07">Jul 2022 – Nov 2023</time>
+          </header>
+          <p class="text-xs text-[#a855f7] mb-1">Frontend Engineer</p>
           <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
-            <li>created internal design system with reusable components, increasing team dev speed</li>
+            <li>Delivered patient-facing cart checkout, intake forms, and third-party vendor storefront</li>
+            <li>Created internal design system with reusable components, increasing team dev speed</li>
           </ul>
-        </div>
+        </section>
         
-        <div class="mb-4">
-          <div class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">ellevest</h3>
-            <span class="text-xs text-[#9a9aaa]">jul 2021 – jun 2022</span>
-          </div>
-          <p class="text-xs text-[#a855f7] mb-1">software engineer ii</p>
+        <section class="mb-4">
+          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+            <h3 class="text-base font-semibold text-[#1a1a2e]">Ellevest</h3>
+            <time class="text-xs text-[#9a9aaa]" datetime="2021-07">Jul 2021 – Jun 2022</time>
+          </header>
+          <p class="text-xs text-[#a855f7] mb-1">Software Engineer II</p>
           <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
-            <li>planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
+            <li>Developed core mobile + web features resulting in 4% conversion increase and 20% funding rate increase</li>
+            <li>Planned and led a maintenance sprint reducing tech debt and increasing cross-team collaboration</li>
           </ul>
-        </div>
+        </section>
         
-        <div class="mb-4">
-          <div class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">ellevest</h3>
-            <span class="text-xs text-[#9a9aaa]">jul 2020 – jul 2021</span>
-          </div>
-          <p class="text-xs text-[#a855f7] mb-1">software engineer i</p>
+        <section class="mb-4">
+          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+            <h3 class="text-base font-semibold text-[#1a1a2e]">Ellevest</h3>
+            <time class="text-xs text-[#9a9aaa]" datetime="2020-07">Jul 2020 – Jul 2021</time>
+          </header>
+          <p class="text-xs text-[#a855f7] mb-1">Software Engineer I</p>
           <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>promoted from intern to full-time; contributed production react native code to ios app</li>
+            <li>Promoted from intern to full-time; contributed production React Native code to iOS app</li>
           </ul>
-        </div>
+        </section>
         
-        <div>
-          <div class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
-            <h3 class="text-base font-semibold text-[#1a1a2e]">contractor + intern</h3>
-            <span class="text-xs text-[#9a9aaa]">sep 2019 – jun 2020</span>
-          </div>
+        <section>
+          <header class="flex justify-between items-baseline mb-0.5 max-md:flex-col max-md:gap-0">
+            <h3 class="text-base font-semibold text-[#1a1a2e]">Contractor + Intern</h3>
+            <time class="text-xs text-[#9a9aaa]" datetime="2019-09">Sep 2019 – Jun 2020</time>
+          </header>
           <ul class="list-disc list-inside text-[#6a6a7a] text-sm space-y-0.5">
-            <li>early career: react native, redux, mobile automation testing</li>
+            <li>Early career: React Native, Redux, mobile automation testing</li>
           </ul>
-        </div>
-      </div>
+        </section>
+      </section>
+
+      <!-- Skills -->
+      <section class="mb-6" aria-labelledby="skills-heading">
+        <h2 id="skills-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-2">Skills</h2>
+        <p class="text-sm text-[#6a6a7a]">React, TypeScript, Cloudflare Workers, TailwindCSS, Product Engineering, Design Systems, Cross-Functional Collaboration</p>
+      </section>
 
       <!-- Education -->
-      <div class="border-t border-[rgba(0,0,0,0.08)] pt-4">
-        <h2 class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-2">education</h2>
-        <p class="text-sm text-[#6a6a7a]">ba computer science, new york university, 2020. minors: web design and linguistics.</p>
-      </div>
+      <section class="border-t border-[rgba(0,0,0,0.08)] pt-4" aria-labelledby="education-heading">
+        <h2 id="education-heading" class="text-[0.7rem] font-semibold uppercase tracking-widest text-[#9a9aaa] mb-2">Education</h2>
+        <p class="text-sm text-[#6a6a7a]">BA Computer Science, New York University, 2020. Minors: Web Design and Linguistics.</p>
+      </section>
     </div>
-  </div>
+  </article>
 </BaseLayout>
