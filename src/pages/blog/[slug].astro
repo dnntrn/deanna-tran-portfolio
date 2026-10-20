@@ -5,7 +5,7 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { slug: post.id.replace(/\.md$/, '') },
+    params: { slug: post.id.replace(/\.mdx?$/, '') },
     props: { post },
   }));
 }
@@ -18,7 +18,7 @@ const { Content } = await render(post);
   title={`${post.data.title} | Deanna Tran`}
   description={post.data.description}
 >
-  <article class="max-w-full">
+  <article class="max-w-[760px] mx-auto">
     <header class="mb-8">
       <a href="/blog" class="inline-block text-sm text-text-secondary no-underline mb-4 transition-colors duration-300 hover:text-accent">&larr; Back to posts</a>
       <time datetime={post.data.pubDate.toISOString()} class="block text-sm text-text-muted mb-3">

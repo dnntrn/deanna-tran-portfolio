@@ -1,0 +1,301 @@
+---
+/**
+ * Inline, theme-aware chart with hover tooltips.
+ *
+ * Charts are generated as SVG by charts_svg.py (analysis repo). Each mark
+ * carries data-label / data-value / data-n, which the script below reads.
+ *
+ * Usage:
+ *   <Chart name="08_enforcement" alt="..." caption="..." />
+ */
+interface Props {
+  name: string;
+  alt: string;
+  caption?: string;
+}
+
+const { name, alt, caption } = Astro.props;
+const charts = import.meta.glob('../assets/charts/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+}) as Record<string, string>;
+const svg = charts[`../assets/charts/${name}.svg`];
+if (!svg) throw new Error(`Chart not found: ${name}`);
+
+// The SVG is designed at this width. The inline preview scales to fit, and the
+// modal opens at the native width so labels stay legible and the reader can
+// scroll the full chart.
+const box = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+const nativeWidth = box ? Math.round(Number(box[1])) : 760;
+---
+
+<figure class="chart-figure">
+  <button
+    type="button"
+    class="chart-open"
+    data-chart-open
+    data-chart-width={nativeWidth}
+    aria-label={`Expand chart: ${alt}`}
+  >
+    <span class="chart-preview" set:html={svg} />
+  </button>
+
+  <div class="chart-meta">
+    {caption ? <figcaption>{caption}</figcaption> : <span />}
+    <span class="chart-hint" aria-hidden="true">expand &nearr;</span>
+  </div>
+
+  <dialog class="chart-dialog" data-chart-dialog aria-label={`Chart: ${alt}`}>
+  <div class="chart-dialog-head">
+    <p class="chart-dialog-title">{alt}</p>
+    <span class="chart-dialog-hint" aria-hidden="true">swipe to explore &rarr;</span>
+    <button type="button" class="chart-dialog-close" data-chart-close aria-label="Close chart">
+      &times;
+    </button>
+  </div>
+  <div
+    class="chart-dialog-scroll"
+    role="region"
+    aria-label="Scrollable chart"
+    tabindex="0"
+  />
+  </dialog>
+</figure>
+
+<script>
+  // Runs once per page even if several <Chart> instances render.
+  if (!(window as any).__chartTips) {
+    (window as any).__chartTips = true;
+
+    const tip = document.createElement('div');
+    tip.className = 'chart-tip';
+    tip.setAttribute('role', 'status');
+    tip.setAttribute('aria-live', 'polite');
+    document.body.appendChild(tip);
+
+    const hide = () => { tip.style.opacity = '0'; };
+
+    document.addEventListener('pointermove', (e) => {
+      const el = (e.target as Element)?.closest?.('[data-label]') as HTMLElement | null;
+      if (!el) return hide();
+
+      const d = el.dataset;
+      const parts = [`<span>${d.label ?? ''}</span>`];
+      if (d.value) parts.push(`<strong>${d.value}</strong>`);
+      if (d.n) parts.push(`<em>n = ${d.n}</em>`);
+      if (d.ci) parts.push(`<em>${d.ci}</em>`);
+      tip.innerHTML = parts.join('');
+
+      const x = Math.min(window.innerWidth - 236, e.clientX + 14);
+      const y = Math.max(8, e.clientY - 48);
+      tip.style.transform = `translate(${x}px, ${y}px)`;
+      tip.style.opacity = '1';
+    }, { passive: true });
+
+    document.addEventListener('pointerdown', hide);
+    window.addEventListener('scroll', hide, { passive: true });
+
+    // One modal at a time. The chart SVG is cloned in at native width, so the
+    // modal scrolls instead of shrinking the labels.
+    let lastTrigger: HTMLButtonElement | null = null;
+
+    const openChart = (trigger: HTMLButtonElement) => {
+      const figure = trigger.closest('.chart-figure');
+      const dialog = figure?.querySelector('dialog[data-chart-dialog]') as HTMLDialogElement | null;
+      const source = trigger.querySelector('svg');
+      const scroll = dialog?.querySelector('.chart-dialog-scroll') as HTMLElement | null;
+      if (!dialog || !source || !scroll) return;
+
+      const clone = source.cloneNode(true) as SVGElement;
+      const width = Number(trigger.dataset.chartWidth) || 760;
+      // Fill the modal on desktop, but never shrink below the chart's native
+      // width. On narrow screens the modal scrolls horizontally instead.
+      clone.style.width = '100%';
+      clone.style.minWidth = `${width}px`;
+      clone.style.maxWidth = 'none';
+      clone.style.height = 'auto';
+      scroll.replaceChildren(clone);
+      scroll.scrollLeft = 0;
+      scroll.scrollTop = 0;
+
+      lastTrigger = trigger;
+      hide();
+      document.body.style.overflow = 'hidden';
+      dialog.showModal();
+    };
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as Element;
+
+      const trigger = target.closest?.('[data-chart-open]') as HTMLButtonElement | null;
+      if (trigger) {
+        openChart(trigger);
+        return;
+      }
+
+      const close = target.closest?.('[data-chart-close]') as HTMLElement | null;
+      if (close) {
+        close.closest('dialog')?.close();
+        return;
+      }
+
+      // Native dialogs report a backdrop click on the dialog element itself.
+      if (target instanceof HTMLDialogElement && target.hasAttribute('data-chart-dialog')) {
+        target.close();
+      }
+    });
+
+    document.addEventListener('close', (e) => {
+      const dialog = e.target as HTMLDialogElement;
+      if (!dialog.matches?.('[data-chart-dialog]')) return;
+      dialog.querySelector('.chart-dialog-scroll')?.replaceChildren();
+      document.body.style.overflow = '';
+      lastTrigger?.focus();
+      lastTrigger = null;
+    }, true);
+  }
+</script>
+
+<style>
+  .chart-figure {
+    margin: 2.75rem 0;
+  }
+  .chart-open {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: zoom-in;
+  }
+  .chart-open:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+  .chart-preview :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .chart-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.85rem;
+  }
+  figcaption {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  .chart-hint {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .chart-dialog {
+    width: min(1400px, calc(100vw - 1.5rem));
+    max-width: none;
+    max-height: calc(100vh - 1.5rem);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+  }
+  .chart-dialog::backdrop {
+    background: rgba(10, 10, 20, 0.6);
+    backdrop-filter: blur(2px);
+  }
+  .chart-dialog-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .chart-dialog-title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+  }
+  .chart-dialog-hint {
+    display: none;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .chart-dialog-close {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+  .chart-dialog-close:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    background: var(--tag-bg);
+  }
+  .chart-dialog-close:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+  .chart-dialog-scroll {
+    overflow: auto;
+    max-height: calc(100vh - 9rem);
+    padding: 1.25rem;
+    overscroll-behavior: contain;
+  }
+  .chart-dialog-scroll:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -4px;
+  }
+  .chart-dialog-scroll :global(svg) {
+    display: block;
+    max-width: none;
+    height: auto;
+    margin-inline: auto;
+  }
+  @media (max-width: 640px) {
+    .chart-dialog {
+      width: calc(100vw - 1rem);
+      max-height: calc(100vh - 1rem);
+      border-radius: 14px;
+    }
+    .chart-dialog-head {
+      padding: 0.75rem 0.9rem;
+    }
+    .chart-dialog-hint {
+      display: inline;
+    }
+    .chart-dialog-scroll {
+      max-height: calc(100vh - 8rem);
+      padding: 1rem 0.9rem;
+    }
+  }
+</style>

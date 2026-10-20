@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Chart from '../components/Chart.astro';
+
+const charts = [
+  { name: '01_block_rate_by_industry', alt: 'Dot plot of the share of sites blocking AI crawlers by industry, with 95% confidence intervals',
+    caption: 'Provisional. Dots show the share of sites whose robots.txt blocks at least one AI training crawler; bars are the 95% interval. Unlabeled domains excluded.' },
+  { name: '01b_posture_stacked', alt: 'Stacked bar chart of full robots.txt posture by industry',
+    caption: 'The same data as a composition view: what share of each industry sits in each posture.' },
+  { name: '01c_industry_by_rank', alt: 'AI restriction rates by industry within three traffic-rank bands',
+    caption: 'Robustness check for the lead chart. News media sits 2-4x above every other industry in all three traffic bands, so the media effect is not a popularity artifact.' },
+  { name: '01d_industry_by_size', alt: 'AI restriction rates by industry within company-size bands',
+    caption: 'Media stays the outlier whether the company is small or large; size does not explain the industry gap.' },
+  { name: '02_bot_ranking', alt: 'Horizontal bar chart of the share of sites blocking each AI crawler',
+    caption: 'Share of policy-observable sites blocking each named crawler.' },
+  { name: '03_granularity', alt: 'Two by two grid of sites blocking training versus citation crawlers',
+    caption: 'Of 108,421 sites that block at least one AI crawler at the root: 62% block citation too, 38% block training only, and 329 (0.3%) block citation while allowing training.' },
+  { name: '04_rank_curve', alt: 'Line chart of AI block rate by traffic rank decile',
+    caption: 'Popularity does not predict AI policy: the root-level restriction rate ranges from 12.3% to 18.9% across bands, with a bump at 400k–600k but no consistent gradient from most to least visited. Each band contains ~70,000 usable sites, so the confidence intervals are smaller than the markers.' },
+  { name: '05_size', alt: 'Bar chart of AI block rate by company size',
+    caption: 'Declared policy by employee-count band: the share of sites whose robots.txt blocks AI. This is what companies write, not what their servers enforce.' },
+  { name: '05b_size_by_rank', alt: 'Heatmap of AI restriction rates by company size within traffic-rank bands',
+    caption: 'Robustness check. Each panel is a traffic band; within all three, larger companies declare fewer AI restrictions, so the pattern is not just an artifact of big companies being popular sites. Cells with fewer than 200 sites are noisy.' },
+  { name: '06_invisible_web', alt: 'Stacked bar of posture across all crawled domains',
+    caption: 'Policy-observable vs all crawled domains. 63,147 sites refused robots.txt; 186,180 were unreachable or unreadable.' },
+  { name: '07_templates', alt: 'Bar chart of identical robots.txt files shared across domains',
+    caption: 'The most repeated robots.txt files, grouped by what they say. Cloudflare\'s AI content-signal boilerplate appears on 29,041 domains; 63% of policy-observable files are unique to a single site.' },
+  { name: '09_path_scope', alt: 'Stacked bar showing where AI blocking occurs: at the root or only on subpaths',
+    caption: 'A third of all blocking happens below the homepage. Tools that check only / miss it.' },
+  { name: '08_enforcement', alt: 'Two by two matrix comparing declared policy with actual enforcement',
+    caption: 'Two separate samples. In the path-aware sample, 356 sites declare an AI block and 78% do not enforce it. In the root-test sample, 697 sites declare no block and 16% block anyway. The samples use different methods and are not pooled.' },
+];
+---
+
+<BaseLayout title="Chart preview" description="Chart rendering preview">
+  <h1>Chart preview</h1>
+  <p>Theme-aware inline SVG. Toggle dark mode to check contrast.</p>
+  {charts.map((c) => (
+    <Chart name={c.name} alt={c.alt} caption={c.caption} />
+  ))}
+</BaseLayout>

@@ -9,9 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "charts": "cp ../robots-ai-policy/article/charts/*.svg src/assets/charts/ && echo 'charts copied'"
   },
   "dependencies": {
+    "@astrojs/mdx": "^6.0.3",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.4",
     "tailwindcss": "^4.3.0"

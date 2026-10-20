@@ -6,29 +6,40 @@ const posts = await getCollection('blog');
 posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Blog | Deanna Tran"
   description="Blog posts by Deanna Tran, Senior Product Engineer at Cloudflare. Thoughts on engineering, product, and tinkering."
 >
-  <section class="mt-16">
-    <h1 class="text-2xl font-semibold mb-6 text-text-primary">blog</h1>
-    <p class="text-base mb-8 -mt-2 text-text-secondary">thoughts on engineering, product, and random tinkering.</p>
-    
-    {posts.map((post) => {
-      const slug = post.id.replace(/\.md$/, '');
+  <section class="max-w-[640px] mx-auto">
+    <h1 class="sr-only">Blog</h1>
+
+    {posts.map((post, index) => {
+      const slug = post.id.replace(/\.mdx?$/, '');
+      const date = post.data.pubDate.toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric',
+      });
       return (
-        <article class="mb-10 pb-8 border-b border-border last:border-b-0">
-          <time datetime={post.data.pubDate.toISOString()} class="block text-[0.8125rem] text-text-muted mb-2">
-            {post.data.pubDate.toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
-          </time>
-          <h2 class="text-xl font-semibold mb-3">
-            <a href={`/blog/${slug}`} class="text-text-primary no-underline transition-colors duration-300 hover:text-accent">{post.data.title}</a>
-          </h2>
-          <p class="text-text-secondary mb-0">{post.data.description}</p>
+        <article class="mb-12 last:mb-0">
+          <div class="flex items-center gap-4 mb-2">
+            <span class="text-sm text-text-muted font-medium tabular-nums">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h2 class="project-title text-xl font-semibold">
+              <a href={`/blog/${slug}`} class="text-text-primary no-underline inline-flex items-center gap-2">
+                {post.data.title}
+              </a>
+            </h2>
+            <time
+              datetime={post.data.pubDate.toISOString()}
+              class="inline-flex shrink-0 items-center whitespace-nowrap text-[0.6875rem] font-semibold text-accent bg-tag-bg px-2 py-0.5 rounded border border-accent/20"
+            >
+              {date}
+            </time>
+          </div>
+          <p class="text-text-secondary text-base leading-relaxed ml-10">
+            {post.data.description}
+          </p>
         </article>
       );
     })}

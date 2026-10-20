@@ -43,7 +43,9 @@ const pathname = Astro.url.pathname;
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script is:inline>
     (function() {
-      const theme = localStorage.getItem('theme') || 'dark';
+      const stored = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      const theme = stored || (prefersLight ? 'light' : 'dark');
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
@@ -87,7 +89,7 @@ const pathname = Astro.url.pathname;
     </a>
     
     <nav class="flex items-center gap-8 max-md:gap-6" aria-label="Main navigation">
-      <a href="/projects" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]" aria-current={pathname === '/projects' ? 'page' : undefined}>Projects</a>
+      <a href="/blog" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]" aria-current={pathname === '/blog' || pathname.startsWith('/blog/') ? 'page' : undefined}>Blog</a>
       <a href="/resume" class="nav-link text-sm font-medium text-text-secondary no-underline max-md:text-[0.8125rem]" aria-current={pathname === '/resume' ? 'page' : undefined}>Resume</a>
     </nav>
 
