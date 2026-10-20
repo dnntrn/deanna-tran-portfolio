@@ -75,6 +75,7 @@
     --chart-grid: rgba(214, 210, 223, 0.12);
     --chart-accent: #e0a05c;
     --chart-surface: #302c48;
+    --color-resume-accent: #d3a4ff;
 }
 
 [data-theme="dark"] .noise-overlay {
@@ -657,6 +658,34 @@ p:last-child {
 /* ===== Resume Lowercase Branding ===== */
 .resume-lowercase {
     text-transform: lowercase;
+}
+
+/* ===== Resume dark mode ===== */
+[data-theme="dark"] .resume-paper {
+    background: #242231;
+    border: 1px solid #3a3550;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .resume-paper [class*="text-[#1a1a2e]"] {
+    color: #e9e4f2;
+}
+[data-theme="dark"] .resume-paper [class*="text-[#333344]"] {
+    color: #c8c1d6;
+}
+[data-theme="dark"] .resume-paper [class*="text-[#6a6a7a]"] {
+    color: #b8b2c6;
+}
+[data-theme="dark"] .resume-paper [class*="text-[#9a9aaa]"] {
+    color: #928e9e;
+}
+[data-theme="dark"] .resume-paper [class*="bg-[rgba(0,0,0,0.04)]"] {
+    background: #302c48;
+}
+[data-theme="dark"] .resume-paper [class*="border-[rgba(0,0,0,0.08)]"] {
+    border-color: #3a3550;
+}
+[data-theme="dark"] .resume-paper .text-resume-accent {
+    color: #d3a4ff;
 }
 
 /* ===== Print Styles for Resume ===== */
