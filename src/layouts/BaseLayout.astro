@@ -23,7 +23,7 @@ const socialImage = image ? new URL(image, Astro.site).toString() : undefined;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,10 +58,8 @@ const socialImage = image ? new URL(image, Astro.site).toString() : undefined;
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script is:inline>
     (function() {
-      const stored = localStorage.getItem('theme');
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      const theme = stored || (prefersLight ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', theme);
+      const stored = localStorage.getItem('theme-v2');
+      document.documentElement.setAttribute('data-theme', stored || 'dark');
     })();
   </script>
 </head>
