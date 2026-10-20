@@ -58,9 +58,14 @@ const socialImage = image ? new URL(image, Astro.site).toString() : undefined;
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script is:inline>
     (function() {
+      const root = document.documentElement;
+      root.classList.add('no-transitions');
       const stored = localStorage.getItem('theme-v2');
       localStorage.removeItem('theme');
-      document.documentElement.setAttribute('data-theme', stored || 'dark');
+      root.setAttribute('data-theme', stored || 'dark');
+      window.addEventListener('load', function() {
+        requestAnimationFrame(function() { root.classList.remove('no-transitions'); });
+      }, { once: true });
     })();
   </script>
 </head>

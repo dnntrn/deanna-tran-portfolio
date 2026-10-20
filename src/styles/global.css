@@ -82,6 +82,16 @@
     opacity: 0.05;
 }
 
+html {
+    background-color: var(--bg-primary);
+}
+
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+    transition: none !important;
+}
+
 /* ===== Global paragraph spacing ===== */
 p {
     margin-bottom: 1.25rem;
