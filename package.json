@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "charts": "cp ../robots-ai-policy/article/charts/*.svg src/assets/charts/ && echo 'charts copied'"
+    "charts": "cp ../robots-ai-policy/article/charts/*.svg src/assets/charts/ && echo 'charts copied'",
+    "deploy": "npm run build && npx wrangler deploy"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.3",

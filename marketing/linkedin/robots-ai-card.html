@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 1500px;
+    background: #faf9f6;
+    color: #1a1a2e;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .card {
+    width: 1200px;
+    height: 1500px;
+    padding: 52px 64px 54px;
+    display: flex;
+    flex-direction: column;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8a8497;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+  h1 {
+    margin: 40px 0 0;
+    max-width: 1020px;
+    font-size: 58px;
+    line-height: 1.04;
+    letter-spacing: -.045em;
+    font-weight: 700;
+  }
+  h1 span { color: #7c3ead; }
+  .dek {
+    margin: 20px 0 0;
+    max-width: 900px;
+    color: #5f596d;
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -.012em;
+  }
+  .dek strong { color: #1a1a2e; font-weight: 600; }
+
+  .pattern { margin-top: 38px; }
+  .pattern-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd6cc;
+  }
+  .pattern-title {
+    margin: 0;
+    font-size: 25px;
+    line-height: 1.15;
+    letter-spacing: -.03em;
+    font-weight: 700;
+  }
+  .pattern-title span { color: #7c3ead; }
+  .pattern-note {
+    margin: 0;
+    color: #8a8497;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .industries {
+    display: grid;
+    gap: 0;
+    margin-top: 8px;
+  }
+  .industry {
+    display: grid;
+    grid-template-columns: 190px 1fr 64px;
+    align-items: center;
+    gap: 16px;
+    min-height: 38px;
+    border-bottom: 1px solid #ece7df;
+  }
+  .industry:last-child { border-bottom: 0; }
+  .industry-name { font-size: 15px; color: #514b5f; }
+  .track { height: 8px; border-radius: 999px; background: #ece7df; overflow: hidden; }
+  .fill { height: 100%; border-radius: 999px; background: #bba9ce; }
+  .industry.featured .industry-name { color: #1a1a2e; font-weight: 600; }
+  .industry.featured .fill { background: #7c3ead; }
+  .industry-value { text-align: right; font-size: 15px; color: #6f687c; font-variant-numeric: tabular-nums; }
+  .industry.featured .industry-value { color: #7c3ead; font-weight: 600; }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 36px;
+  }
+  .panel-title {
+    margin: 0 0 4px;
+    font-size: 23px;
+    line-height: 1.2;
+    letter-spacing: -.03em;
+    font-weight: 700;
+  }
+  .panel-sub {
+    margin: 0;
+    color: #6f687c;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .bigstat {
+    margin: 18px 0 0;
+    font-size: 94px;
+    line-height: .8;
+    letter-spacing: -.065em;
+    font-weight: 700;
+    color: #7c3ead;
+    font-variant-numeric: tabular-nums;
+  }
+  .bigcopy {
+    margin: 12px 0 0;
+    color: #5f596d;
+    font-size: 16px;
+    line-height: 1.42;
+  }
+  .bigcopy strong { color: #1a1a2e; }
+  .split-bar {
+    display: flex;
+    height: 16px;
+    margin-top: 14px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #e8e2d8;
+  }
+  .split-bar .yes { width: 62%; background: #7c3ead; }
+  .split-bar .no { width: 38%; background: #e8a5c0; }
+  .splits {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #6f687c;
+    font-size: 13px;
+  }
+  .splits strong { color: #1a1a2e; }
+  .quote {
+    margin: 14px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid #ece7df;
+    color: #5f596d;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .quote strong { color: #1a1a2e; }
+
+  .limited {
+    margin-top: 34px;
+    padding: 22px 24px 20px;
+    border: 1px solid #ddd6cc;
+    border-radius: 12px;
+    background: #f3eff8;
+  }
+  .limited-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .limited-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #7c3ead;
+    letter-spacing: .04em;
+  }
+  .limited-note {
+    margin: 0;
+    color: #8a8497;
+    font-size: 12px;
+  }
+  .limited-body {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .limited-big {
+    font-size: 72px;
+    line-height: .8;
+    letter-spacing: -.06em;
+    font-weight: 700;
+    color: #7c3ead;
+    font-variant-numeric: tabular-nums;
+  }
+  .limited-copy {
+    margin: 0;
+    color: #514b5f;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+  .limited-copy strong { color: #1a1a2e; }
+  .caveat {
+    margin: 10px 0 0;
+    color: #6f687c;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .closing {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 40px;
+    align-items: end;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd6cc;
+  }
+  .closing-quote {
+    margin: 0;
+    max-width: 680px;
+    font-size: 30px;
+    line-height: 1.18;
+    letter-spacing: -.03em;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .closing-quote span { color: #7c3ead; }
+  .method { display: grid; gap: 0; }
+  .method-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 5px 0;
+    border-bottom: 1px solid #ece7df;
+    color: #6f687c;
+    font-size: 12px;
+  }
+  .method-row:last-child { border-bottom: 0; }
+  .method-row strong { color: #1a1a2e; font-size: 14px; font-variant-numeric: tabular-nums; }
+
+  .footer {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid #ddd6cc;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #8a8497;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .footer strong { color: #5f596d; font-weight: 500; }
+  .footer .url { color: #7c3ead; font-size: 15px; font-weight: 600; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="top"><span>deannatran.dev</span></div>
+
+    <h1>What the top million robots.txt files say about AI. <span>The clearest patterns are in what sites write.</span></h1>
+
+    <p class="dek">I read <strong>990,825 robots.txt files</strong>. Most sites declare no AI restriction at all. The ones that do mostly block the whole category, or use a shared default.</p>
+
+    <section class="pattern">
+      <div class="pattern-head">
+        <h2 class="pattern-title">News media has the highest declaration rate.</h2>
+        <p class="pattern-note">share of sites · not enforcement</p>
+      </div>
+      <div class="industries">
+        <div class="industry featured"><span class="industry-name">news media</span><div class="track"><div class="fill" style="width:85.7%"></div></div><span class="industry-value">25.7%</span></div>
+        <div class="industry"><span class="industry-name">real estate</span><div class="track"><div class="fill" style="width:43.7%"></div></div><span class="industry-value">13.1%</span></div>
+        <div class="industry"><span class="industry-name">professional services</span><div class="track"><div class="fill" style="width:32.3%"></div></div><span class="industry-value">9.7%</span></div>
+        <div class="industry"><span class="industry-name">ecommerce retail</span><div class="track"><div class="fill" style="width:30.7%"></div></div><span class="industry-value">9.2%</span></div>
+        <div class="industry"><span class="industry-name">software saas</span><div class="track"><div class="fill" style="width:23.3%"></div></div><span class="industry-value">7.0%</span></div>
+        <div class="industry"><span class="industry-name">finance</span><div class="track"><div class="fill" style="width:17.7%"></div></div><span class="industry-value">5.3%</span></div>
+      </div>
+    </section>
+
+    <div class="twocol">
+      <section>
+        <h2 class="panel-title">Most blockers block everything.</h2>
+        <p class="panel-sub">Of root-level AI blockers, the majority also block citation crawlers.</p>
+        <div class="bigstat">62%</div>
+        <p class="bigcopy"><strong>66,740 sites</strong> block training and citation together. <strong>41,352</strong> block training only.</p>
+        <div class="split-bar"><div class="yes"></div><div class="no"></div></div>
+        <div class="splits"><span><strong>66,740</strong> block both</span><span><strong>41,352</strong> training only</span></div>
+        <p class="quote">Only 329 sites block citation while allowing training. The two-tier “protect IP, stay discoverable” strategy is real, but rare.</p>
+      </section>
+
+      <section>
+        <h2 class="panel-title">The most common policy is a default.</h2>
+        <p class="panel-sub">One Cloudflare content-signal template dominates the long tail.</p>
+        <div class="bigstat">29,041</div>
+        <p class="bigcopy">domains use the same <strong>Cloudflare boilerplate</strong>. That is 3.9% of policy-observable domains.</p>
+        <p class="quote"><strong>63%</strong> of policy-observable domains have a file unique to one site. The rest is a long tail of copied defaults.</p>
+      </section>
+    </div>
+
+    <section class="limited">
+      <div class="limited-head">
+        <h3 class="limited-title">WHAT I COULD TEST</h3>
+        <p class="limited-note">limited sample · User-Agent only</p>
+      </div>
+      <div class="limited-body">
+        <div class="limited-big">78%</div>
+        <div>
+          <p class="limited-copy">Of <strong>356 testable declared GPTBot blockers</strong>, 279 returned the page to a GPTBot User-Agent at the exact path they blocked.</p>
+          <p class="caveat">The request came from a residential IP, not a verified GPTBot crawler. This is a signal, not a complete enforcement audit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <p class="closing-quote">The most common AI policy on the web is <span>a default.</span></p>
+      <div class="method">
+        <div class="method-row"><strong>990,825</strong><span>domains crawled</span></div>
+        <div class="method-row"><strong>741,498</strong><span>policy-observable</span></div>
+        <div class="method-row"><strong>356</strong><span>testable blockers</span></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><strong>Source:</strong> Tranco top 1M, Oct 2026. PDL industry labels. 741,498 policy-observable domains.<br>Path-aware enforcement sample: 525 declared blockers, 356 testable.</div>
+      <div class="url">deannatran.dev</div>
+    </footer>
+  </main>
+</body>
+</html>

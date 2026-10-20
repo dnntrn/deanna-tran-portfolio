@@ -1,7 +1,17 @@
 ---
-title: "What a million robots.txt files reveal about AI"
-description: "How, and whether, the web is protecting against AI."
+title: "Patterns in the top million robots.txt files"
+description: "What the top million sites say about AI, and what they actually do. Most declared AI blocks weren’t enforced, and Cloudflare’s default was the most common policy."
 pubDate: 2026-10-20
+image: "/share/robots-ai-og.png"
+toc:
+  how-i-did-this: "how i did this"
+  the-web-says-less-than-you-would-think: "what the web says"
+  when-they-do-restrict-they-restrict-a-lot: "when they do restrict"
+  the-most-common-repeated-ai-policy-on-the-web-is-a-cloudflare-template: "the cloudflare template"
+  the-most-common-ai-block-mostly-isnt-enforced-at-the-user-agent-level: "the enforcement gap"
+  collection-disclaimers: "what we can't measure"
+  hypotheses-i-couldnt-prove: "what i couldn't prove"
+  what-this-means: "what this means"
 ---
 
 import Chart from '../../components/Chart.astro';
@@ -15,7 +25,7 @@ Do they accidentally expose AI partnerships or deals?
 
 I pulled the robots.txt files from the top million websites to see if I could glean any interesting patterns from all these policies. Have companies gotten more clever at handling bots?
 
-The answer is mostly no. In a sample of 356 sites that ban GPTBot, 78% served a
+The answer is mostly no. In a sample of 356 testable sites that ban GPTBot, 78% served a
 request identifying as GPTBot anyway. Of the sites that do enforce their rules,
 about half are blocking every bot that isn't a browser, not AI specifically.
 Some of the most common AI policies on the top million sites were boilerplate
@@ -43,6 +53,7 @@ exist for a normal browser, I threw the case out rather than score it.
   name="01_block_rate_by_industry"
   alt="Share of sites declaring AI restrictions, by industry, with 95% confidence intervals"
   caption="Only 14.6% of policy-observable domains declare a root-level AI restriction. News media is the outlier at 25.7%; most other industries sit between 5% and 13%."
+  source="Tranco top 1M, Oct 2026 · policy-observable domains · n = 741,498; industry labels from PDL"
 />
 
 Start with the most basic fact: most sites have nothing to say. Of the 589,347
@@ -60,6 +71,7 @@ themselves from AI, and there is, but it seems concentrated in one industry.
   name="04_rank_curve"
   alt="Declared AI restriction rate by traffic rank, roughly similar across bands"
   caption="Popularity does not predict AI policy: the root-level restriction rate ranges from 12.3% to 18.9% across bands, with a bump at 400k–600k but no consistent gradient from most to least visited."
+  source="Tranco top 1M, Oct 2026 · policy-observable domains · n = 741,498 across ten traffic-rank bands"
 />
 
 The obvious objection is that media sites are simply the popular sites, and
@@ -73,6 +85,7 @@ to write rules.
   name="01c_industry_by_rank"
   alt="AI restriction rates by industry within three traffic-rank bands"
   caption="Robustness check. News media sits about 3x above every other industry in all three traffic bands, so the media effect is not a popularity artifact."
+  source="Tranco top 1M, Oct 2026 · PDL-labeled domains · n = 274,314 policy-observable"
 />
 
 The media effect is not a size artifact either. Within every size band, media stays far
@@ -88,6 +101,7 @@ Popularity does not.
   name="03_granularity"
   alt="Split bar showing whether sites that block AI also block citation crawlers"
   caption="Of 108,421 sites that block at least one AI crawler at the root: 62% block citation too, 38% block training only, and 329 (0.3%) block citation while allowing training."
+  source="Tranco top 1M, Oct 2026 · root-level AI blockers · n = 108,421"
 />
 
 AI companies split their crawlers in two. There are training crawlers, which
@@ -104,6 +118,7 @@ The real split is between sites that draw a line and sites that block the whole 
   name="02_bot_ranking"
   alt="Share of sites blocking each AI crawler, grouped by training versus retrieval"
   caption="Training crawlers are blocked at 6.9–11.9%; retrieval crawlers at 6.8–8.4%. GPTBot leads at 11.9%; Applebot-Extended is the lowest training crawler at 6.9%."
+  source="Tranco top 1M, Oct 2026 · policy-observable domains · n = 741,498"
 />
 
 The ranking tells a consistent story at the margin. The top of the list is
@@ -122,6 +137,7 @@ But that preference is not the same as a two-tier policy. The per-site numbers a
   name="07_templates"
   alt="The most repeated robots.txt files, grouped by what they say"
   caption="Cloudflare's content-signal boilerplate appears on 29,041 domains, from two templates. Meanwhile 63% of policy-observable files are unique to a single site."
+  source="Tranco top 1M, Oct 2026 · policy-observable domains · n = 741,498"
 />
 
 This is a number I find really interesting (maybe biasedly because I work at Cloudflare lol). The most repeated robots.txt among the
@@ -171,7 +187,7 @@ you had but with 63% of these files being unique, can it be assumed these are in
     </table>
   </div>
   <p class="chart-note text-sm leading-relaxed text-text-secondary">
-    {`Of 356 sites that disallowed GPTBot and were tested at the exact blocked path, 279 (78%) served it anyway. In a separate root-test sample of 697 sites that declared no AI restriction, 114 (16%) blocked it anyway. The GPTBot non-enforcement rate in the path-aware sample held across every industry, 67–91%. The two samples used different methods, so I don't pool them into a single contradiction rate. Sites that blocked the browser itself are excluded.`}
+    {`Of 356 testable sites that disallowed GPTBot and were tested at the exact blocked path, 279 (78%) served it anyway. In a separate root-test sample of 697 sites that declared no AI restriction, 114 (16%) blocked it anyway. The GPTBot non-enforcement rate in the path-aware sample held across every industry, 67–91%. The two samples used different methods, so I don't pool them into a single contradiction rate. Sites that blocked the browser itself are excluded.`}
   </p>
 </div>
 
@@ -180,12 +196,13 @@ This is the part I did not expect.
 Robots.txt is voluntary. Nothing about the protocol requires a server to honor
 it. It's a statement of intent and policy, not an actual security protection.
 
-I ran two checks. The path-aware sample tested 356 declared blockers at a
-loadable GPTBot-blocked path. A separate root-test sample tested 697 sites that
-declared no AI restriction. Sites with no file, a missing path, a blocked
-browser, or an unverifiable result were excluded from the relevant check.
+I ran two checks. The path-aware sample covered 1,000 domains. 525 declared an
+AI block; 356 of those were testable at a loadable GPTBot-blocked path. A
+separate root-test sample tested 697 sites that declared no AI restriction.
+Sites with no file, a missing path, a blocked browser, or an unverifiable result
+were excluded from the relevant check.
 
-Of 356 sites whose file disallowed GPTBot, tested at the exact path they
+Of those 356 testable sites whose file disallowed GPTBot, tested at the exact path they
 blocked, with a browser and a generic crawler as controls, 78% served the
 content to a request identifying as GPTBot anyway. Only 12% blocked GPTBot
 while allowing the browser and generic crawler. Another 10% blocked every bot
@@ -198,6 +215,7 @@ declared no AI restriction at all, 16% blocked an AI crawler anyway.
   name="09_path_scope"
   alt="Stacked bar showing whether AI blocking happens at the root or below it"
   caption="30% of all blocking happens below the homepage. We tested the exact paths sites claim to block for GPTBot, and the GPTBot non-enforcement rate went up, not down."
+  source="Tranco top 1M, Oct 2026 · policy-observable domains · n = 741,498"
 />
 
 There is a detail that makes this worse and better at the same time. 30% of the
@@ -214,6 +232,7 @@ when I requested a path a site wanted locked, it still opened.
   name="06_invisible_web"
   alt="Two bars: what sites declare, and what could actually be measured"
   caption="63,147 sites refuse to serve robots.txt at all; 173,539 were unreachable. 8.5% of the path-aware enforcement sample could not be verified because the browser itself was blocked."
+  source="Tranco top 1M, Oct 2026 · n = 990,825 crawled; 741,498 policy-observable"
 />
 
 None of this is a complete picture, and I want to be specific about where it
@@ -271,8 +290,35 @@ Cloudflare.
 
 If anything, this shows that while some industries and AI power users like me may be hyper-focused on AI, most companies are still playing catch up.
 
+<figure class="blog-infographic">
+  <img
+    class="infographic-light"
+    src="/share/robots-ai-card.png"
+    width="1200"
+    height="1500"
+    loading="lazy"
+    decoding="async"
+    alt="Editorial infographic titled 'What the top million robots.txt files say about AI. The clearest patterns are in what sites write.' It shows news media highest at 25.7% for root-level AI restrictions, followed by real estate at 13.1% and other industries below 10%. It notes that 62% of root-level blockers also block citation crawlers, that 29,041 domains use Cloudflare's content-signal boilerplate, and that 63% of policy-observable domains have a file unique to one site. A separate limited-test panel says that of 356 testable declared GPTBot blockers, 279 returned the page to a GPTBot User-Agent at the exact path they blocked, with a caveat that this is User-Agent only and not a verified crawler."
+  />
+  <img
+    class="infographic-dark"
+    src="/share/robots-ai-card-dark.png"
+    width="1200"
+    height="1500"
+    loading="lazy"
+    decoding="async"
+    alt="Dark-mode version of the same editorial infographic about AI restrictions in robots.txt. It shows news media highest at 25.7% for root-level AI restrictions, followed by real estate at 13.1% and other industries below 10%. It notes that 62% of root-level blockers also block citation crawlers, that 29,041 domains use Cloudflare's content-signal boilerplate, and that 63% of policy-observable domains have a file unique to one site. A limited-test panel notes that of 356 testable declared GPTBot blockers, 279 returned the page to a GPTBot User-Agent at the exact path they blocked, with a caveat that this is User-Agent only and not a verified crawler."
+  />
+  <figcaption>
+    {`Visual summary of the findings. Full method and caveats above. Download: `}
+    <a href="/share/robots-ai-card.png" download="robots-ai-card-light.png">light</a>
+    {` · `}
+    <a href="/share/robots-ai-card-dark.png" download="robots-ai-card-dark.png">dark</a>
+  </figcaption>
+</figure>
+
 ---
 
 <p class="mt-12">
-  <em>{`Method: 990,825 domains from the Tranco top-1M list, October 2026. Industry labels from a commercial company database, checked against 250 hand-labelled domains (80% agreement). Enforcement test: two samples. The path-aware sample covered 1,000 domains, including 356 declared GPTBot blockers tested at the exact path they block, with browser and generic-crawler controls. The root-test sample covered a separate 1,000 domains, including 697 declared-open sites tested at the root. Sites that blocked the browser itself were excluded (85 of 1,000 path-aware; 220 of 1,000 root-test). The two samples are not pooled. Enforcement is measured by User-Agent only, not verified crawler identity. GPTBot was the only AI crawler tested.`}</em>
+  <em>{`Method: 990,825 domains from the Tranco top-1M list, October 2026. Industry labels from a commercial company database, checked against 250 hand-labelled domains (80% agreement). Enforcement test: two samples. The path-aware sample covered 1,000 domains, including 525 declared blockers, of which 356 were testable at a loadable path and tested at the exact path they block, with browser and generic-crawler controls. The root-test sample covered a separate 1,000 domains, including 697 declared-open sites tested at the root. Sites that blocked the browser itself were excluded (85 of 1,000 path-aware; 220 of 1,000 root-test). The two samples are not pooled. Enforcement is measured by User-Agent only, not verified crawler identity. GPTBot was the only AI crawler tested.`}</em>
 </p>

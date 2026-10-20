@@ -4,14 +4,22 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
 }
 
 const { 
   title = "Deanna Tran - Senior Product Engineer | Cloudflare",
-  description = "Deanna Tran is a Senior Product Engineer at Cloudflare in NYC. Building developer tools, operational platforms, and expressive interfaces. Creator of Deckcraft."
+  description = "Deanna Tran is a Senior Product Engineer at Cloudflare in NYC. Building developer tools, operational platforms, and expressive interfaces. Creator of Deckcraft.",
+  image,
+  type = 'website',
+  publishedTime
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = image ? new URL(image, Astro.site).toString() : undefined;
 ---
 
 <!DOCTYPE html>
@@ -23,17 +31,24 @@ const pathname = Astro.url.pathname;
   <meta name="description" content={description}>
   <meta name="author" content="Deanna Tran">
   
-  <link rel="canonical" href="https://deannatran.com">
+  <link rel="canonical" href={canonicalURL}>
   
-  <meta property="og:type" content="website">
+  <meta property="og:type" content={type}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:url" content="https://deannatran.com">
+  <meta property="og:url" content={canonicalURL}>
   <meta property="og:site_name" content="Deanna Tran">
+  {type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+  {socialImage && <meta property="og:image" content={socialImage} />}
+  {socialImage && <meta property="og:image:width" content="1200" />}
+  {socialImage && <meta property="og:image:height" content="627" />}
+  {socialImage && <meta property="og:image:type" content="image/png" />}
+  {socialImage && <meta property="og:image:alt" content={description} />}
   
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content={socialImage ? "summary_large_image" : "summary"}>
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
+  {socialImage && <meta name="twitter:image" content={socialImage} />}
   
   <meta name="theme-color" content="#d3a4ff">
   
@@ -121,10 +136,30 @@ const pathname = Astro.url.pathname;
   </main>
 
   <footer class="site-footer mx-auto px-8 pt-12 pb-8 flex justify-center items-center border-t border-border relative z-10 max-md:px-6 max-md:pt-8 max-md:pb-6">
-    <p class="text-sm text-text-secondary">© 2026 deanna</p>
+    <p class="text-sm text-text-secondary">© 2026 deannatran.dev</p>
   </footer>
 
   <script is:inline src="/scripts/darkMode.js"></script>
+
+  <script is:inline>
+    (function () {
+      document.querySelectorAll('a[href]').forEach(function (link) {
+        var href = link.getAttribute('href');
+        if (!href || !/^https?:\/\//i.test(href)) return;
+        try {
+          var url = new URL(href, window.location.href);
+          if (url.hostname === window.location.hostname) return;
+          link.setAttribute('target', '_blank');
+          var rel = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+          rel.add('noopener');
+          rel.add('noreferrer');
+          link.setAttribute('rel', Array.from(rel).join(' '));
+        } catch (error) {
+          // Ignore malformed URLs.
+        }
+      });
+    })();
+  </script>
 
   <script type="application/ld+json" is:inline>
   {
@@ -132,7 +167,7 @@ const pathname = Astro.url.pathname;
     "@type": "ProfilePage",
     "mainEntity": {
       "@type": "Person",
-      "@id": "https://deannatran.com/#person",
+      "@id": "https://deannatran.dev/#person",
       "name": "Deanna Tran",
       "jobTitle": "Senior Product Engineer",
       "worksFor": {
@@ -146,7 +181,7 @@ const pathname = Astro.url.pathname;
         "addressRegion": "NY",
         "addressCountry": "US"
       },
-      "url": "https://deannatran.com",
+      "url": "https://deannatran.dev",
       "sameAs": [
         "https://github.com/dnntrn",
         "https://www.linkedin.com/in/deannatran/"

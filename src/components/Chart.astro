@@ -1,4 +1,6 @@
 ---
+import SocialShare from './SocialShare.astro';
+
 /**
  * Inline, theme-aware chart with hover tooltips.
  *
@@ -12,9 +14,10 @@ interface Props {
   name: string;
   alt: string;
   caption?: string;
+  source?: string;
 }
 
-const { name, alt, caption } = Astro.props;
+const { name, alt, caption, source } = Astro.props;
 const charts = import.meta.glob('../assets/charts/*.svg', {
   query: '?raw',
   import: 'default',
@@ -28,9 +31,13 @@ if (!svg) throw new Error(`Chart not found: ${name}`);
 // scroll the full chart.
 const box = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
 const nativeWidth = box ? Math.round(Number(box[1])) : 760;
+const shareText = [caption, source, 'deannatran.dev · “What a million robots.txt files reveal about AI”']
+  .filter(Boolean)
+  .join('\n\n');
+const chartUrl = `${new URL(Astro.url.pathname, Astro.site).toString()}#${name}`;
 ---
 
-<figure class="chart-figure">
+<figure class="chart-figure" id={name}>
   <button
     type="button"
     class="chart-open"
@@ -46,10 +53,13 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     <span class="chart-hint" aria-hidden="true">expand &nearr;</span>
   </div>
 
-  <dialog class="chart-dialog" data-chart-dialog aria-label={`Chart: ${alt}`}>
+  <dialog
+    class="chart-dialog"
+    data-chart-dialog
+    aria-label={`Chart: ${alt}`}
+  >
   <div class="chart-dialog-head">
     <p class="chart-dialog-title">{alt}</p>
-    <span class="chart-dialog-hint" aria-hidden="true">swipe to explore &rarr;</span>
     <button type="button" class="chart-dialog-close" data-chart-close aria-label="Close chart">
       &times;
     </button>
@@ -60,6 +70,12 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     aria-label="Scrollable chart"
     tabindex="0"
   />
+  <div class="chart-dialog-context">
+    {caption && <p class="chart-dialog-caption">{caption}</p>}
+    {source && <p class="chart-dialog-source">{source}</p>}
+    <p class="chart-dialog-credit">deannatran.dev · “What a million robots.txt files reveal about AI”</p>
+    <SocialShare url={chartUrl} title={alt} text={shareText} />
+  </div>
   </dialog>
 </figure>
 
@@ -202,6 +218,8 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
   }
 
   .chart-dialog {
+    display: flex;
+    flex-direction: column;
     width: min(1400px, calc(100vw - 1.5rem));
     max-width: none;
     max-height: calc(100vh - 1.5rem);
@@ -213,6 +231,9 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     color: var(--text-primary);
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
     overflow: hidden;
+  }
+  .chart-dialog:not([open]) {
+    display: none;
   }
   .chart-dialog::backdrop {
     background: rgba(10, 10, 20, 0.6);
@@ -232,13 +253,6 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     font-size: 0.78rem;
     line-height: 1.4;
     color: var(--text-secondary);
-  }
-  .chart-dialog-hint {
-    display: none;
-    flex-shrink: 0;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    white-space: nowrap;
   }
   .chart-dialog-close {
     display: grid;
@@ -266,8 +280,9 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     outline-offset: 2px;
   }
   .chart-dialog-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
     overflow: auto;
-    max-height: calc(100vh - 9rem);
     padding: 1.25rem;
     overscroll-behavior: contain;
   }
@@ -281,6 +296,32 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     height: auto;
     margin-inline: auto;
   }
+  .chart-dialog-context {
+    flex-shrink: 0;
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.9rem 1.1rem 1rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+  }
+  .chart-dialog-caption {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+  .chart-dialog-source {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+  }
+  .chart-dialog-credit {
+    margin: 0;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
   @media (max-width: 640px) {
     .chart-dialog {
       width: calc(100vw - 1rem);
@@ -290,12 +331,11 @@ const nativeWidth = box ? Math.round(Number(box[1])) : 760;
     .chart-dialog-head {
       padding: 0.75rem 0.9rem;
     }
-    .chart-dialog-hint {
-      display: inline;
-    }
     .chart-dialog-scroll {
-      max-height: calc(100vh - 8rem);
       padding: 1rem 0.9rem;
+    }
+    .chart-dialog-context {
+      padding: 0.8rem 0.9rem 0.9rem;
     }
   }
 </style>

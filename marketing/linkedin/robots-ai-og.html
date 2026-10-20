@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 627px;
+    background: #faf9f6;
+    color: #1a1a2e;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .card {
+    width: 1200px;
+    height: 627px;
+    padding: 44px 56px 38px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 48px;
+    position: relative;
+  }
+  .left { display: flex; flex-direction: column; }
+  .brand { font-size: 14px; font-weight: 600; color: #8a8497; }
+  h1 {
+    margin: 26px 0 0;
+    font-size: 48px;
+    line-height: 1.04;
+    letter-spacing: -.045em;
+    font-weight: 700;
+  }
+  h1 span { color: #7c3ead; }
+  .dek {
+    margin: 18px 0 0;
+    max-width: 535px;
+    font-size: 18px;
+    line-height: 1.45;
+    color: #5f596d;
+  }
+  .dek strong { color: #1a1a2e; font-weight: 600; }
+  .right { display: flex; flex-direction: column; justify-content: center; gap: 0; }
+  .stat {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 18px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd6cc;
+  }
+  .stat:last-child { border-bottom: 0; }
+  .stat .n {
+    font-size: 46px;
+    line-height: .85;
+    letter-spacing: -.055em;
+    font-weight: 700;
+    color: #7c3ead;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .t { font-size: 14px; line-height: 1.35; color: #6f687c; }
+  .stat .t strong { display: block; color: #1a1a2e; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .footer {
+    position: absolute;
+    left: 56px; right: 56px; bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd6cc;
+    padding-top: 10px;
+    font-size: 11px;
+    color: #8a8497;
+  }
+  .footer .url { color: #7c3ead; font-weight: 600; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <section class="left">
+      <div class="brand">deannatran.dev</div>
+      <h1>What the top million robots.txt files say about AI. <span>The clearest patterns are in what sites write.</span></h1>
+      <p class="dek">I read <strong>990,825 robots.txt files</strong>. Most sites declare no AI restriction at all. The ones that do mostly block the whole category, or use a default.</p>
+    </section>
+    <section class="right">
+      <div class="stat"><div class="n">25.7%</div><div class="t"><strong>news media declares AI restrictions</strong>far above most other industries</div></div>
+      <div class="stat"><div class="n">62%</div><div class="t"><strong>of root-level blockers block citation too</strong>most choose the whole category</div></div>
+      <div class="stat"><div class="n">29,041</div><div class="t"><strong>domains use Cloudflare’s boilerplate</strong>the most common policy is a default</div></div>
+    </section>
+    <footer class="footer">
+      <span>Tranco top 1M, Oct 2026 · 741,498 policy-observable domains</span>
+      <span class="url">deannatran.dev</span>
+    </footer>
+  </main>
+</body>
+</html>
