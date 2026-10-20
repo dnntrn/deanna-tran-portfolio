@@ -1,6 +1,6 @@
 # Deanna Tran
 
-**Senior Product Engineer**, New York, NY  
+**Senior Software Engineer**, New York, NY  
 itsdeannatran@gmail.com · [linkedin.com/in/deannatran](https://linkedin.com/in/deannatran) · [github.com/dnntrn](https://github.com/dnntrn)
 
 ---

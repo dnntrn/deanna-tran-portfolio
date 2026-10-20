@@ -1,3 +1,8 @@
+# If you're a human or an AI crawler: this file is boring.
+# No training block. Just a red herring.
+# The good stuff is here:
+# https://deannatran.dev/blog/patterns-in-the-top-million-robots-txt-files/
+
 User-agent: *
 Allow: /
 

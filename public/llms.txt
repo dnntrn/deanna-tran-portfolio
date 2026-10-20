@@ -1,7 +1,7 @@
 # Deanna Tran
 
 ## Bio
-Deanna Tran is a Senior Product Engineer at Cloudflare in NYC, operating like an internal forward-deployed engineer across the security and trust organization.
+Deanna Tran is a Senior Software Engineer at Cloudflare in NYC, operating like an internal forward-deployed engineer or product engineer across the security and trust organization.
 
 She focuses on fixing underlying workflows instead of just digitizing broken ones by dropping in wherever the need is greatest to map the customer problem, define the technical roadmap, and align the team to ship.
 
