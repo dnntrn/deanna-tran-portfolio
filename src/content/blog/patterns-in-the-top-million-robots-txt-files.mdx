@@ -25,11 +25,7 @@ Do they accidentally expose AI partnerships or deals?
 
 I pulled the robots.txt files from the top million websites to see if I could glean any interesting patterns from all these policies. Have companies gotten more clever at handling bots?
 
-The answer is mostly no. In a sample of 356 testable sites that ban GPTBot, 78% served a
-request identifying as GPTBot anyway. Of the sites that do enforce their rules,
-about half are blocking every bot that isn't a browser, not AI specifically.
-Some of the most common AI policies on the top million sites were boilerplate
-templates served by third parties.
+The answer is mostly no. In a sample of 356 testable sites that declared a GPTBot block, 279 did not block a request with the GPTBot User-Agent at the exact path they blocked. Some of the most repeated AI policies were boilerplate files copied from third parties or CDNs, and a few had contradictory policies.
 
 I'm not the first person to look at these files. [FT Strategies](https://www.ftstrategies.com/en-gb/insights/robots.txt-as-strategic-intent-analysis-of-large-publishers-practices-and-policies) analysed 70 major
 publishers and found a clear pattern: 60 of them restrict at least one AI

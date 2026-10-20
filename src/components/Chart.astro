@@ -322,6 +322,12 @@ const chartUrl = `${new URL(Astro.url.pathname, Astro.site).toString()}#${name}`
     line-height: 1.4;
     color: var(--text-muted);
   }
+  @media (min-width: 768px) {
+    .chart-hint {
+      display: none;
+    }
+  }
+
   @media (max-width: 640px) {
     .chart-dialog {
       width: calc(100vw - 1rem);
