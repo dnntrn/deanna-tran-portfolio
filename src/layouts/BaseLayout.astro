@@ -59,6 +59,7 @@ const socialImage = image ? new URL(image, Astro.site).toString() : undefined;
   <script is:inline>
     (function() {
       const stored = localStorage.getItem('theme-v2');
+      localStorage.removeItem('theme');
       document.documentElement.setAttribute('data-theme', stored || 'dark');
     })();
   </script>
