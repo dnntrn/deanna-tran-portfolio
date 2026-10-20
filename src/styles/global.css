@@ -22,9 +22,9 @@
 /* ===== CSS Variables for Dark Mode ===== */
 
 :root {
-    --bg-primary: #F7F2EB;
-    --bg-secondary: #F7F2EB;
-    --bg-tertiary: #F7F2EB;
+    --bg-primary: #FCFCFB;
+    --bg-secondary: #FCFCFB;
+    --bg-tertiary: #FCFCFB;
     --text-primary: #1a1a2e;
     --text-secondary: #6a6a7a;
     --text-muted: #9a9aaa;
