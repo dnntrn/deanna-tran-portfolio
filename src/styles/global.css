@@ -507,6 +507,16 @@ p:last-child {
 .site-logo {
     perspective: 500px;
 }
+
+@media (max-width: 767px) {
+    .site-logo svg {
+        width: 30px;
+        height: 22px;
+    }
+    .site-logo .logo-right {
+        width: 22px;
+    }
+}
 .site-logo:hover {
     transform: scale(1.08) rotateY(5deg);
 }
@@ -524,6 +534,15 @@ p:last-child {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(211, 164, 255, 0.2);
     background: var(--tag-bg-hover);
+}
+
+/* ===== Home hero ===== */
+.hero {
+    --hero-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-lead {
+    color: var(--accent-color);
 }
 
 /* ===== Desktop portrait stage ===== */
@@ -633,35 +652,35 @@ p:last-child {
 [data-theme="dark"] .theme-toggle .sun-icon { display: block !important; }
 [data-theme="dark"] .theme-toggle .moon-icon { display: none !important; }
 
-/* ===== Fade-in Animation States ===== */
-.typewriter-target {
-    color: var(--accent-color);
+/* ===== Home entrance ===== */
+@keyframes heroRise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
 }
-.typewriter-label {
+
+html.hero-animate .hero-reveal {
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.typewriter-paragraph.visible .typewriter-label {
-    opacity: 1;
-    transform: translateY(0);
-}
-.fade-paragraph {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.fade-paragraph.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroRise 0.72s var(--hero-ease) forwards;
+    animation-delay: calc(80ms + var(--i, 0) * 70ms);
 }
 
 /* ===== Reduced Motion ===== */
 @media (prefers-reduced-motion: reduce) {
     .logo-star, .logo-star-small, .hero-star { animation: none; }
     .noise-overlay { display: none; }
-    .typewriter-label, .fade-paragraph {
-        opacity: 1; transform: none; transition: none;
+    html.hero-animate .hero-reveal {
+        opacity: 1;
+        animation: none;
+        filter: none;
+        transform: none;
     }
 }
 

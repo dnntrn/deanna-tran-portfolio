@@ -6,7 +6,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Deanna Tran - Senior Software Engineer | Cloudflare"
   description="Deanna Tran is a Senior Software Engineer at Cloudflare in NYC, operating like an internal forward-deployed engineer or product engineer across security and trust. She focuses on fixing underlying workflows and thrives in high-ambiguity loops."
 >
-  <section class="intro mb-16 relative flex items-stretch gap-8 justify-center max-md:flex-col max-md:items-center">
+  <script is:inline data-astro-rerun>
+    (function () {
+      const root = document.documentElement;
+      const seen = sessionStorage.getItem('hasSeenHomeAnimation');
+
+      if (!seen) {
+        root.classList.add('hero-animate');
+        window.setTimeout(function () {
+          sessionStorage.setItem('hasSeenHomeAnimation', 'true');
+          root.classList.remove('hero-animate');
+        }, 1400);
+      }
+    })();
+  </script>
+
+  <section class="intro hero mb-16 relative flex items-stretch gap-8 justify-center max-md:flex-col max-md:items-center">
     <!-- Mobile: bust shot image -->
     <img src="/stars_bust.svg" alt="Deanna Tran" class="profile-avatar-mobile block md:hidden w-[260px] mx-auto mb-4">
 
@@ -18,26 +33,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </span>
       </h1>
 
-      <p class="typewriter-paragraph mb-5">
-        <span class="typewriter-target">i live in Queens, NYC</span>
-        <span class="typewriter-label"> with an assertive cat and my wonderful partner.</span>
+      <p class="hero-reveal mb-5" style="--i: 0">
+        <span class="hero-lead">i live in Queens, NYC</span> with an assertive cat and my wonderful partner.
       </p>
 
-      <p class="typewriter-paragraph mb-5">
-        <span class="typewriter-target">i'm a senior software engineer</span>
-        <span class="typewriter-label"> at cloudflare. The best way to describe my role is like an internal forward-deployed engineer or product engineer across our security and trust organization.</span>
+      <p class="hero-reveal mb-5" style="--i: 1">
+        <span class="hero-lead">i'm a senior software engineer</span> at cloudflare. The best way to describe my role is like an internal forward-deployed engineer or product engineer across our security and trust organization.
       </p>
 
-      <p class="typewriter-paragraph mb-5">
-        <span class="typewriter-target">i focus on fixing underlying workflows instead of just digitizing broken ones</span>
-        <span class="typewriter-label"> by dropping into teams to map the customer problem, define the technical roadmap, and ship.</span>
+      <p class="hero-reveal mb-5" style="--i: 2">
+        <span class="hero-lead">i focus on fixing underlying workflows instead of just digitizing broken ones</span> by dropping into teams to map the customer problem, define the technical roadmap, and ship.
       </p>
 
-      <p class="fade-paragraph mb-5">before cloudflare, i was at early-stage startups spinning up design systems and pivoting lots.</p>
+      <p class="hero-reveal mb-5" style="--i: 3">
+        before cloudflare, i was at early-stage startups spinning up design systems and pivoting lots.
+      </p>
 
-      <p class="typewriter-paragraph mb-5">
-        <span class="typewriter-label">outside of work, I love tinkering on random things and watching basketball.</span>
-        <span class="typewriter-target">i love my cat, lion</span><span class="typewriter-label">.</span>
+      <p class="hero-reveal mb-5" style="--i: 4">
+        outside of work, I love tinkering on random things and watching basketball.
+        <span class="hero-lead">i love my cat, lion</span>.
       </p>
     </div>
     
@@ -78,6 +92,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </svg>
     </div>
   </section>
-
-  <script is:inline src="/scripts/staggeredFade.js"></script>
 </BaseLayout>
